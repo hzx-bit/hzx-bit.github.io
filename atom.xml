@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-09-20T15:33:38.886Z</updated>
+  <updated>2024-09-21T05:18:35.327Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,15 +21,15 @@
     <link href="http://example.com/2024/09/20/git/"/>
     <id>http://example.com/2024/09/20/git/</id>
     <published>2024-09-20T13:23:00.000Z</published>
-    <updated>2024-09-20T15:33:38.886Z</updated>
+    <updated>2024-09-21T05:18:35.327Z</updated>
     
-    <content type="html"><![CDATA[<div class="story post-story"><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><ul><li>git reset –hard (commitId) 版本回退</li><li>git-log&#x2F;git log 查看版本</li><li>git add (file) 添加工作区到暂存区</li><li>git commit -m (“message”) 提交暂存区到本地仓库</li><li>git branch 查看分支</li><li>git branch (dev) 创建分支</li><li>git checkout (dev) 切换分支</li><li>git checkout -b (dev) 创建并切换分支</li><li>git merge (dev) 将某分支合并到当前分支</li><li>git branch -d (dev) 删除分支   -D 强制删除</li></ul><h3 id="常见分支"><a href="#常见分支" class="headerlink" title="常见分支"></a>常见分支</h3><ul><li><p>master分支</p><p>线上运行分支，主分支</p></li><li><p>dev分支</p><p>从master创建的分支，开发分支，开发完成后合并到master分支</p></li><li><p>feature分支 </p><p>从dev创建的分支，同期并行开发一些功能，完成后合并到dev分支</p></li><li><p>hotfix分支</p><p>master派生的分支，线上bug修复使用，修复完成后合并到master、test、develop分支</p></li></ul></div>]]></content>
+    <content type="html"><![CDATA[<div class="story post-story"><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><ul><li><p>git reset –hard (commitId) 版本回退</p></li><li><p>git-log&#x2F;git log 查看版本</p></li><li><p>git add (file) 添加工作区到暂存区</p></li><li><p>git commit -m (“message”) 提交暂存区到本地仓库</p></li><li><p>git branch 查看分支</p></li><li><p>git branch (dev) 创建分支</p></li><li><p>git checkout (dev) 切换分支</p></li><li><p>git checkout -b (dev) 创建并切换分支</p></li><li><p>git merge (dev) 将某分支合并到当前分支</p></li><li><p>git branch -d (dev) 删除分支   -D 强制删除</p></li><li><p>git push [-f] [–set-upstream] [远端仓库名称 [本地分支名] [:远端分支名]] 推送到远程分支（同名可省略远端分支名）</p><p>–set-upstream 推送的同时建立起和远程分支的关联关系</p></li><li><p>git branch -vv 查看本地分支和远程分支的对应关系</p></li><li><p>git clone [本地目录] 克隆仓库到本地</p></li><li><p>git fetch [remote name] [branch name] 抓取仓库里的更新到本地，不会进行合并</p></li><li><p>git pull [remote name] [branch name] 抓取仓库里的更新到本地,自动进行合并</p></li></ul></div><div class="story post-story"><h2 id="常见分支"><a href="#常见分支" class="headerlink" title="常见分支"></a>常见分支</h2><ul><li><p>master分支</p><p>线上运行分支，主分支</p></li><li><p>dev分支</p><p>从master创建的分支，开发分支，开发完成后合并到master分支</p></li><li><p>feature分支 </p><p>从dev创建的分支，同期并行开发一些功能，完成后合并到dev分支</p></li><li><p>hotfix分支</p><p>master派生的分支，线上bug修复使用，修复完成后合并到master、test、develop分支</p></li></ul></div><div class="story post-story"><h2 id="配置公-私钥"><a href="#配置公-私钥" class="headerlink" title="配置公&#x2F;私钥"></a>配置公&#x2F;私钥</h2><ul><li>用户（hzx）目录下</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br><span class="line"><span class="built_in">cat</span> .ssh/id_rsa.pub</span><br></pre></td></tr></table></figure><ul><li>到代码托管平台粘贴公钥</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure></div><div class="story post-story"><h2 id="关联远程仓库"><a href="#关联远程仓库" class="headerlink" title="关联远程仓库"></a>关联远程仓库</h2><ul><li>创建仓库时<strong>README,.gitignore，liscence</strong>都不要添加</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin(远端仓库名称) git@github.com:hzx-bit/git_test.git(远程仓库地址)</span><br></pre></td></tr></table></figure><ul><li>git remote 查看远程仓库</li><li>git push origin master 本地仓库推送到远程仓库</li></ul></div><div class="story post-story"><h2 id="同步远程仓库，远程解决冲突"><a href="#同步远程仓库，远程解决冲突" class="headerlink" title="同步远程仓库，远程解决冲突"></a>同步远程仓库，远程解决冲突</h2><ul><li>git fetch+git merge</li><li>git pull</li></ul></div>]]></content>
     
     
       
       
     <summary type="html">&lt;div class=&quot;story post-story&quot;&gt;&lt;h2 id=&quot;常用命令&quot;&gt;&lt;a href=&quot;#常用命令&quot; class=&quot;headerlink&quot; title=&quot;常用命令&quot;&gt;&lt;/a&gt;常用命令&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;git reset –hard (commitId)</summary>
+&lt;li&gt;&lt;p&gt;git reset –hard (commit</summary>
       
     
     
