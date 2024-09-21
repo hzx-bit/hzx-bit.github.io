@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-09-21T12:15:31.593Z</updated>
+  <updated>2024-09-21T12:29:19.729Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>面试八股</title>
+    <link href="http://example.com/2024/09/21/%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1/"/>
+    <id>http://example.com/2024/09/21/%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1/</id>
+    <published>2024-09-21T12:28:26.000Z</published>
+    <updated>2024-09-21T12:29:19.729Z</updated>
+    
+    <content type="html"><![CDATA[<div class="story post-story"><h2 id="确定this的值"><a href="#确定this的值" class="headerlink" title="确定this的值"></a>确定this的值</h2><p>在非严格模式下，总是指向同一个对象，在严格模式下可以是任意值</p><ol><li><p>全局执行环境中，指向全局对象</p></li><li><p>函数内部，取决于函数被调用的方式</p><ol><li><p>直接调用的this值</p><ul><li>非严格模式：全局对象（window）</li><li>严格模式：undefined</li></ul></li><li><p>对象方法调用的this值</p><ul><li>调用者</li></ul></li></ol></li></ol><ul><li><p>开启严格模式</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br></pre></td></tr></table></figure></li></ul></div>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;div class=&quot;story post-story&quot;&gt;&lt;h2 id=&quot;确定this的值&quot;&gt;&lt;a href=&quot;#确定this的值&quot; class=&quot;headerlink&quot; title=&quot;确定this的值&quot;&gt;&lt;/a&gt;确定this的值&lt;/h2&gt;&lt;p&gt;在非严格模式下，总是指向同一个对</summary>
+      
+    
+    
+    
+    <category term="学习笔记" scheme="http://example.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="面试八股" scheme="http://example.com/tags/%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>9.21</title>
