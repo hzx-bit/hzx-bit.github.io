@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-09-21T05:18:35.327Z</updated>
+  <updated>2024-09-21T12:05:36.443Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>9.21</title>
+    <link href="http://example.com/2024/09/21/9-21/"/>
+    <id>http://example.com/2024/09/21/9-21/</id>
+    <published>2024-09-21T11:48:00.000Z</published>
+    <updated>2024-09-21T12:05:36.443Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>高新区的晚霞，我想我会想念这里的</strong><img src="..\images\21.jpg" class="lazyload" data-srcset="..\images\21.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="/></p><p><img src="/..%5Cimages%5C22.jpg" class="lazyload" data-srcset="/..%5Cimages%5C22.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p><p><strong>今天状态不错</strong><img src="/..%5Cimages%5C19.jpg" class="lazyload" data-srcset="/..%5Cimages%5C19.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p><p><strong>学信网档案更新啦</strong><img src="/..%5Cimages%5C20.jpg" class="lazyload" data-srcset="/..%5Cimages%5C20.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;strong&gt;高新区的晚霞，我想我会想念这里的&lt;/strong&gt;&lt;img src=&quot;..&#92;images&#92;21.jpg&quot; class=&quot;lazyload&quot; data-srcset=&quot;..&#92;images&#92;21.jpg&quot; srcset=&quot;data:image/gif;base6</summary>
+      
+    
+    
+    
+    <category term="随笔" scheme="http://example.com/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>git</title>
