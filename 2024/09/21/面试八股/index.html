@@ -43,11 +43,11 @@
 <meta property="og:title" content="面试八股">
 <meta property="og:url" content="http://example.com/2024/09/21/%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1/index.html">
 <meta property="og:site_name" content="hzx&#39;s blog">
-<meta property="og:description" content="确定this的值在非严格模式下，总是指向同一个对象，在严格模式下可以是任意值  全局执行环境中，指向全局对象  函数内部，取决于函数被调用的方式  直接调用的this值  非严格模式：全局对象（window） 严格模式：undefined   对象方法调用的this值  调用者       开启严格模式 1&#x27;use strict&#x27;">
+<meta property="og:description" content="确定this的值在非严格模式下，总是指向同一个对象，在严格模式下可以是任意值     非严格模式 严格模式    全局环境 window window   直接调用 window undefined   对象方法调用 调用者 调用者   开启严格模式 1&#x27;use strict&#x27;    指定this的值 调用时指定  call方法	 1func.call(thisArg,arg1">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2024-09-21T12:28:26.000Z">
-<meta property="article:modified_time" content="2024-09-21T12:29:19.729Z">
+<meta property="article:modified_time" content="2024-09-21T15:35:20.073Z">
 <meta property="article:author" content="huangzhixin">
 <meta property="article:tag" content="面试八股">
 <meta name="twitter:card" content="summary">
@@ -1766,7 +1766,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1726921782266),
+    lastupdate: new Date(1726932955146),
     sidebar: {
       for_page: ["weChat","post","guide","webinfo"],
       for_post: ["toc"],
@@ -2700,29 +2700,59 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
     <div class="story post-story"><h2 id="确定this的值"><a href="#确定this的值" class="headerlink" title="确定this的值"></a>确定this的值</h2><p>在非严格模式下，总是指向同一个对象，在严格模式下可以是任意值</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>非严格模式</th>
+<th>严格模式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>全局环境</td>
+<td>window</td>
+<td>window</td>
+</tr>
+<tr>
+<td>直接调用</td>
+<td>window</td>
+<td>undefined</td>
+</tr>
+<tr>
+<td>对象方法调用</td>
+<td>调用者</td>
+<td>调用者</td>
+</tr>
+</tbody></table>
+<p>开启严格模式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+</div><div class="story post-story"><h2 id="指定this的值"><a href="#指定this的值" class="headerlink" title="指定this的值"></a>指定this的值</h2><ul>
+<li><p>调用时指定</p>
 <ol>
-<li><p>全局执行环境中，指向全局对象</p>
+<li><p>call方法	</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">func.call(thisArg,arg1,arg2...)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>函数内部，取决于函数被调用的方式</p>
-<ol>
-<li><p>直接调用的this值</p>
-<ul>
-<li>非严格模式：全局对象（window）</li>
-<li>严格模式：undefined</li>
-</ul>
-</li>
-<li><p>对象方法调用的this值</p>
-<ul>
-<li>调用者</li>
-</ul>
-</li>
+<li><p>apply方法	</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">func.apply(thisArg,[arg1,arg2...])</span><br></pre></td></tr></table></figure></li>
 </ol>
 </li>
+<li><p>创建时指定</p>
+<ol>
+<li><p>bind方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const bindFunc = func.bind(thisArg,arg1,arg2...)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>箭头函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const dog = &#123;</span><br><span class="line">	name:&#x27;ason&#x27;,</span><br><span class="line">	eat()&#123;</span><br><span class="line">		setTimeout(()=&gt;&#123;</span><br><span class="line">			console.log(this)//输出eat()的调用者dog</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
-<ul>
-<li><p>开启严格模式</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br></pre></td></tr></table></figure></li>
+</li>
 </ul>
+</div><div class="story post-story"><h2 id="手写call方法与apply方法"><a href="#手写call方法与apply方法" class="headerlink" title="手写call方法与apply方法"></a>手写call方法与apply方法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Function</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">myCall</span> = <span class="keyword">function</span>(<span class="params">thisArg,...args</span>)&#123;</span><br><span class="line">    <span class="keyword">const</span> key = <span class="title class_">Symbol</span>(<span class="string">&#x27;key&#x27;</span>)</span><br><span class="line">    thisArg[key] = <span class="variable language_">this</span></span><br><span class="line">    <span class="keyword">const</span> res = thisArg[key](...args)</span><br><span class="line">    <span class="keyword">delete</span> thisArg[key]</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Function</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">myApply</span> = <span class="keyword">function</span>(<span class="params">thisArg,args</span>)&#123;</span><br><span class="line">    <span class="keyword">const</span> key = <span class="title class_">Symbol</span>(<span class="string">&#x27;key&#x27;</span>)</span><br><span class="line">    thisArg[key] = <span class="variable language_">this</span></span><br><span class="line">    <span class="keyword">const</span> res = thisArg[key](args)</span><br><span class="line">    <span class="keyword">delete</span> thisArg[key]</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">    <span class="attr">name</span>:<span class="string">&#x27;hzx&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">func</span>(<span class="params">numA,numB</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(numA,numB)</span><br><span class="line">    <span class="keyword">return</span> numA+numB</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">func2</span>(<span class="params">[numA,numB]</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(numA,numB)</span><br><span class="line">    <span class="keyword">return</span> numA+numB</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> res = func.<span class="title function_">myCall</span>(person,<span class="number">2</span>,<span class="number">8</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;myCall返回值为：&#x27;</span>,res)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> res2 = func2.<span class="title function_">myApply</span>(person,[<span class="number">2</span>,<span class="number">8</span>])</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;myApply的返回值为：&#x27;</span>,res2)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+</div><div class="story post-story"><h2 id="手写bind方法"><a href="#手写bind方法" class="headerlink" title="手写bind方法"></a>手写bind方法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Function</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">myBind</span> = <span class="keyword">function</span>(<span class="params">thisArg,...args1</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function">(<span class="params">...args2</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="title function_">call</span>(thisArg,...args1,...args2)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">    <span class="attr">name</span>:<span class="string">&#x27;hzx&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">func</span>(<span class="params">numA,numB,numC,numD</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(numA,numB,numC,numD)</span><br><span class="line">    <span class="keyword">return</span> numA+numB+numC+numD</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> bindFunc = func.<span class="title function_">myBind</span>(person,<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line"><span class="keyword">const</span> res = <span class="title function_">bindFunc</span>(<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;myBind返回值为：&#x27;</span>,res)</span><br></pre></td></tr></table></figure>
+
 
 </div>
   </div>
@@ -2748,7 +2778,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2024-09-21T20:29:19+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2024-09-21T23:35:20+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
     <p>本页文档最后更新于：2024年9月21日</p>
@@ -2897,7 +2927,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A1%AE%E5%AE%9Athis%E7%9A%84%E5%80%BC"><span class="toc-number">1.</span> <span class="toc-text">确定this的值</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A1%AE%E5%AE%9Athis%E7%9A%84%E5%80%BC"><span class="toc-number">1.</span> <span class="toc-text">确定this的值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E5%AE%9Athis%E7%9A%84%E5%80%BC"><span class="toc-number">2.</span> <span class="toc-text">指定this的值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%8B%E5%86%99call%E6%96%B9%E6%B3%95%E4%B8%8Eapply%E6%96%B9%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">手写call方法与apply方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%8B%E5%86%99bind%E6%96%B9%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text">手写bind方法</span></a></li></ol>
     </div>
   </section>
 
@@ -3955,7 +3985,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp"];
   let index = 0;
   let IntervalParallax = null;
 
@@ -4274,7 +4304,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"hzx's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"hzx's blog"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/学习笔记/","name":"学习笔记"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2024/09/21/面试八股/","name":"面试八股"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"hzx's blog","url":"http://example.com/","keywords":null,"description":"","author":{"@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":""},"publisher":{"@type":"Organization","name":"hzx's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"面试八股","description":"","inLanguage":["zh-CN","en","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2024/09/21/%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1/"},"author":{"@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"hzx's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2024/09/21/%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1/","wordCount":0,"datePublished":"2024-09-21T12:28:26.000Z","dateModified":"2024-09-21T12:29:19.729Z","articleSection":"学习笔记","keywords":"面试八股","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"hzx's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"hzx's blog"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/学习笔记/","name":"学习笔记"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2024/09/21/面试八股/","name":"面试八股"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"hzx's blog","url":"http://example.com/","keywords":null,"description":"","author":{"@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":""},"publisher":{"@type":"Organization","name":"hzx's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"面试八股","description":"","inLanguage":["zh-CN","en","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2024/09/21/%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1/"},"author":{"@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"hzx's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2024/09/21/%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1/","wordCount":0,"datePublished":"2024-09-21T12:28:26.000Z","dateModified":"2024-09-21T15:35:20.073Z","articleSection":"学习笔记","keywords":"面试八股","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
