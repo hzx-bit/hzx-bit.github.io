@@ -47,7 +47,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2024-09-28T03:21:13.000Z">
-<meta property="article:modified_time" content="2024-09-29T03:55:55.888Z">
+<meta property="article:modified_time" content="2024-09-29T14:31:40.492Z">
 <meta property="article:author" content="huangzhixin">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
@@ -1765,7 +1765,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1727582211863),
+    lastupdate: new Date(1727621874019),
     sidebar: {
       for_page: ["weChat","post","guide","webinfo"],
       for_post: ["toc"],
@@ -2800,7 +2800,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <td>就地反转数组中的元素，并返回同一数组的引用。</td>
 </tr>
 <tr>
-<td>arr.toReverse()</td>
+<td>arr.toReversed()</td>
 <td>不改变原始数组的情况下反转数组中的元素。</td>
 </tr>
 <tr>
@@ -2875,6 +2875,38 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <td>Math.abs()</td>
 <td>绝对值</td>
 </tr>
+<tr>
+<td>date.getfullYear()</td>
+<td>以四位数字返回年份。</td>
+</tr>
+<tr>
+<td>date.getMonth()</td>
+<td>返回月份 (0 ~ 11)。</td>
+</tr>
+<tr>
+<td>date.getDate()</td>
+<td>返回一个月中的某一天 (1 ~ 31)。</td>
+</tr>
+<tr>
+<td>date.getDay()</td>
+<td>返回一周中的某一天 (0 ~ 6)。</td>
+</tr>
+<tr>
+<td>date.getHours()</td>
+<td>返回小时 (0 ~ 23)。</td>
+</tr>
+<tr>
+<td>date.getMinutes()</td>
+<td>返回分钟 (0 ~ 59)。</td>
+</tr>
+<tr>
+<td>date.getSeconds()</td>
+<td>返回秒数 (0 ~ 59)。</td>
+</tr>
+<tr>
+<td>date.getTime()|+new Date()|Date.now()</td>
+<td>获取时间戳</td>
+</tr>
 </tbody></table>
 </div><div class="story post-story"><h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><h3 id="定义正则表达式"><a href="#定义正则表达式" class="headerlink" title="定义正则表达式"></a>定义正则表达式</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> reg = <span class="regexp">/表达式/</span>修饰符</span><br></pre></td></tr></table></figure>
 
@@ -2915,15 +2947,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </tr>
 <tr>
 <td>\s</td>
-<td>查找空白字符,包括换行</td>
-</tr>
-<tr>
-<td>\S</td>
-<td>查找空白字符，不包括换行</td>
+<td>查找空白字符,等于[\t\r\n\v\f]</td>
 </tr>
 <tr>
 <td>\w</td>
 <td>匹配数字、字母、下划线，等价于[0-9a-zA-Z_]</td>
+</tr>
+<tr>
+<td>\D  \S  \W</td>
+<td>与对应的小写形式相反</td>
 </tr>
 <tr>
 <td>\b</td>
@@ -2962,7 +2994,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li><p><code>m</code>:多行匹配</p>
 </li>
 </ul>
-<h3 id="匹配"><a href="#匹配" class="headerlink" title="匹配"></a>匹配</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> reg = <span class="regexp">/she/</span></span><br><span class="line">string str = <span class="string">&#x27;sherlock-holmes&#x27;</span></span><br><span class="line">reg.<span class="title function_">test</span>(str)</span><br><span class="line">reg.<span class="title function_">exec</span>(str)</span><br><span class="line">str.<span class="title function_">replace</span>(reg,<span class="string">&#x27;substitute&#x27;</span>)</span><br><span class="line">str.<span class="title function_">search</span>(reg)</span><br></pre></td></tr></table></figure>
+<h3 id="匹配"><a href="#匹配" class="headerlink" title="匹配"></a>匹配</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> reg = <span class="regexp">/she/</span></span><br><span class="line">string str = <span class="string">&#x27;sherlock-holmes&#x27;</span></span><br><span class="line">reg.<span class="title function_">test</span>(str)<span class="comment">//返回true|false</span></span><br><span class="line">reg.<span class="title function_">exec</span>(str)<span class="comment">//返回数组|null</span></span><br><span class="line">str.<span class="title function_">replace</span>(reg,<span class="string">&#x27;substitute&#x27;</span>)</span><br><span class="line">str.<span class="title function_">search</span>(reg)</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li><p><strong>test()</strong> 方法用于检测一个字符串是否匹配某个模式。</p>
@@ -2973,6 +3005,270 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </li>
 <li><p><strong>replace()</strong> 方法用于在字符串中用一些字符串替换另一些字符串，或替换一个与正则表达式匹配的子串。</p>
 </li>
+</ul>
+</div><div class="story post-story"><h2 id="DOM对象"><a href="#DOM对象" class="headerlink" title="DOM对象"></a>DOM对象</h2><h3 id="document对象"><a href="#document对象" class="headerlink" title="document对象"></a>document对象</h3><table>
+<thead>
+<tr>
+<th>属性&#x2F;方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>document.querySelector()</td>
+<td>返回文档中匹配指定的CSS选择器的第一元素</td>
+</tr>
+<tr>
+<td>document.querySelectorAll()</td>
+<td>返回文档中匹配的CSS选择器的所有元素节点列表</td>
+</tr>
+<tr>
+<td>document.write()</td>
+<td>向文档写 HTML 表达式 或 JavaScript 代码</td>
+</tr>
+<tr>
+<td>document.createElement()</td>
+<td>创建元素节点。</td>
+</tr>
+<tr>
+<td>document.body</td>
+<td>返回文档的body元素</td>
+</tr>
+<tr>
+<td>document.documentElement</td>
+<td>返回文档的根节点</td>
+</tr>
+<tr>
+<td>document.title</td>
+<td>返回当前文档的标题</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="DOM元素对象"><a href="#DOM元素对象" class="headerlink" title="DOM元素对象"></a>DOM元素对象</h3><table>
+<thead>
+<tr>
+<th>属性&#x2F;方法</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>element.innerHTML</td>
+<td align="left">设置或者返回元素的内容（解析标签）。</td>
+</tr>
+<tr>
+<td>element.innerText</td>
+<td align="left">设置或者返回元素的文字内容（不解析标签）。</td>
+</tr>
+<tr>
+<td>element.style</td>
+<td align="left">设置或返回元素的样式属性。</td>
+</tr>
+<tr>
+<td>element.src|title|value|type</td>
+<td align="left">设置或返回元素的源|标题|值|类型。</td>
+</tr>
+<tr>
+<td>element.className</td>
+<td align="left">设置或返回元素的类名。</td>
+</tr>
+<tr>
+<td>element.classList.add()|remove()|toggle()</td>
+<td align="left">追加类名|移除类名|切换类名</td>
+</tr>
+<tr>
+<td>element.dataset</td>
+<td align="left">获取data-属性</td>
+</tr>
+<tr>
+<td>element.addEventListener(‘事件类型’,Func，是否使用捕获机制)|on事件</td>
+<td align="left">添加事件</td>
+</tr>
+<tr>
+<td>element.removeEventListener(‘事件类型’,Func，是否使用捕获机制)</td>
+<td align="left">解绑事件（匿名函数无法解绑）</td>
+</tr>
+<tr>
+<td>element.parentNode</td>
+<td align="left">返回元素的父节点</td>
+</tr>
+<tr>
+<td>element.children</td>
+<td align="left">返回元素的子元素的集合</td>
+</tr>
+<tr>
+<td>element.nextElementSibling</td>
+<td align="left">返回元素的下一个兄弟节点</td>
+</tr>
+<tr>
+<td>element.previousElementSibling</td>
+<td align="left">返回元素的上一个兄弟节点</td>
+</tr>
+<tr>
+<td>element.appendChild(ele)</td>
+<td align="left">为元素添加一个新的子元素</td>
+</tr>
+<tr>
+<td>element.insertBefore(insertEle,ele)</td>
+<td align="left">现有的子元素之前插入一个新的子元素</td>
+</tr>
+<tr>
+<td>element.cloneNode(false|true)</td>
+<td align="left">克隆某个元素,参数为true时，同时克隆子元素</td>
+</tr>
+<tr>
+<td>element.removeChild(ele)</td>
+<td align="left">删除一个子元素</td>
+</tr>
+</tbody></table>
+<h3 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h3><table>
+<thead>
+<tr>
+<th>属性&#x2F;方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>e.target</td>
+<td>返回触发此事件的元素（事件的目标节点）。</td>
+</tr>
+<tr>
+<td>e.type</td>
+<td>返回当前 Event 对象表示的事件的名称。</td>
+</tr>
+<tr>
+<td>e.currentTarget</td>
+<td>返回其事件监听器触发该事件的元素。</td>
+</tr>
+<tr>
+<td>e.timeStamp</td>
+<td>返回事件生成的日期和时间。</td>
+</tr>
+<tr>
+<td>e.preventDefault()</td>
+<td>通知浏览器不要执行与事件关联的默认动作。</td>
+</tr>
+<tr>
+<td>e.stopPropagation()</td>
+<td>阻止冒泡。</td>
+</tr>
+</tbody></table>
+</div><div class="story post-story"><h2 id="BOM对象"><a href="#BOM对象" class="headerlink" title="BOM对象"></a>BOM对象</h2><ul>
+<li>window对象是一个全局对象，也可以说是JavaScript中的顶级对象</li>
+<li>document、alert()、console都是window的属性和方法</li>
+<li>所有通过var定义在全局作用域中的变量、函数都会变成window对象的属性和方法</li>
+<li>window对象下的属性和方法调用时可以省略window</li>
+</ul>
+<h3 id="location对象"><a href="#location对象" class="headerlink" title="location对象"></a>location对象</h3><table>
+<thead>
+<tr>
+<th>属性&#x2F;方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>location.href</td>
+<td>返回完整的URL,可以用来跳转页面</td>
+</tr>
+<tr>
+<td>location.hostname</td>
+<td>返回URL的主机名</td>
+</tr>
+<tr>
+<td>location.port</td>
+<td>返回一个URL服务器使用的端口号</td>
+</tr>
+<tr>
+<td>location.protocol</td>
+<td>返回一个URL协议</td>
+</tr>
+<tr>
+<td>location.search</td>
+<td>返回一个URL的查询部分(?后部分)</td>
+</tr>
+<tr>
+<td>location.hash</td>
+<td>返回一个URL的锚部分(#后部分)</td>
+</tr>
+<tr>
+<td>location.reload(true)</td>
+<td>刷新页面</td>
+</tr>
+</tbody></table>
+<h3 id="navigator对象"><a href="#navigator对象" class="headerlink" title="navigator对象"></a>navigator对象</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">!(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">const</span> userAgent = navigator.<span class="property">userAgent</span></span><br><span class="line">    <span class="keyword">const</span> android = userAgent.<span class="title function_">match</span>(<span class="regexp">/(Android);?[\s\/]+([\d.]+)?/</span>)</span><br><span class="line">    <span class="keyword">const</span> iphone = userAgent.<span class="title function_">match</span>(<span class="regexp">/(iPhone\sOS)\s([\d_]+)/</span>)</span><br><span class="line">    <span class="keyword">if</span>(android||iphone)&#123;</span><br><span class="line">        location.<span class="property">href</span> = <span class="string">&#x27;http://m.itcast.cn&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="history对象"><a href="#history对象" class="headerlink" title="history对象"></a>history对象</h3><table>
+<thead>
+<tr>
+<th>属性方法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>history.length</td>
+<td>返回历史列表中的网址数</td>
+</tr>
+<tr>
+<td>history.back()</td>
+<td>加载 history 列表中的前一个 URL</td>
+</tr>
+<tr>
+<td>history.forword()</td>
+<td>加载 history 列表中的下一个 URL</td>
+</tr>
+<tr>
+<td>history.go(n)</td>
+<td>加载 history 列表中的某个具体页面,正数前进、负数后退</td>
+</tr>
+</tbody></table>
+<h3 id="localStorage对象"><a href="#localStorage对象" class="headerlink" title="localStorage对象"></a>localStorage对象</h3><table>
+<thead>
+<tr>
+<th>属性&#x2F;方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>localStorage.length</td>
+<td>返回存储对象中包含多少条数据</td>
+</tr>
+<tr>
+<td>localStorage.key(n)</td>
+<td>返回存储对象中第 <em>n</em> 个键的名称</td>
+</tr>
+<tr>
+<td>localStorage.getItem(keyname)</td>
+<td>返回指定键的值</td>
+</tr>
+<tr>
+<td>localStorage.setItem(keyname,value)</td>
+<td>添加键和值，如果对应的值存在，则更新该键对应的值</td>
+</tr>
+<tr>
+<td>localStorage.removeItem(keyname)</td>
+<td>移除键</td>
+</tr>
+<tr>
+<td>localStorage.clear()</td>
+<td>清除存储对象中所有的键</td>
+</tr>
+</tbody></table>
+<ul>
+<li>JSON.stringfy(复杂数据类型)</li>
+<li>JSON.parse(json数据)</li>
+</ul>
+</div><div class="story post-story"><h2 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h2><ul>
+<li>const timer &#x3D; setInterval(function(){},ms)</li>
+<li>clearInterval(timer)</li>
+<li>const timer &#x3D; setTimeout(Func,ms)</li>
+<li>clearTimeout(timer)</li>
 </ul>
 
 </div>
@@ -2999,7 +3295,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2024-09-29T11:55:55+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2024-09-29T22:31:40+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
     <p>本页文档最后更新于：2024年9月29日</p>
@@ -3151,7 +3447,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.</span> <span class="toc-text">输入输出语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined%E4%B8%8Enull"><span class="toc-number">2.</span> <span class="toc-text">undefined与null</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">3.</span> <span class="toc-text">类型转换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2"><span class="toc-number">3.1.</span> <span class="toc-text">隐式转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E8%BD%AC%E6%8D%A2"><span class="toc-number">3.2.</span> <span class="toc-text">显示转换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84"><span class="toc-number">4.</span> <span class="toc-text">数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1"><span class="toc-number">5.</span> <span class="toc-text">对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">6.</span> <span class="toc-text">正则表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">6.1.</span> <span class="toc-text">定义正则表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8C%B9%E9%85%8D%E5%AD%97%E7%AC%A6"><span class="toc-number">6.1.1.</span> <span class="toc-text">匹配字符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%87%8F%E8%AF%8D"><span class="toc-number">6.1.2.</span> <span class="toc-text">量词</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E7%BB%84%E5%92%8C%E6%8D%95%E8%8E%B7"><span class="toc-number">6.1.3.</span> <span class="toc-text">分组和捕获</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">6.1.4.</span> <span class="toc-text">修饰符</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%B9%E9%85%8D"><span class="toc-number">6.2.</span> <span class="toc-text">匹配</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.</span> <span class="toc-text">输入输出语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined%E4%B8%8Enull"><span class="toc-number">2.</span> <span class="toc-text">undefined与null</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">3.</span> <span class="toc-text">类型转换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2"><span class="toc-number">3.1.</span> <span class="toc-text">隐式转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E8%BD%AC%E6%8D%A2"><span class="toc-number">3.2.</span> <span class="toc-text">显示转换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84"><span class="toc-number">4.</span> <span class="toc-text">数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1"><span class="toc-number">5.</span> <span class="toc-text">对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">6.</span> <span class="toc-text">正则表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">6.1.</span> <span class="toc-text">定义正则表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8C%B9%E9%85%8D%E5%AD%97%E7%AC%A6"><span class="toc-number">6.1.1.</span> <span class="toc-text">匹配字符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%87%8F%E8%AF%8D"><span class="toc-number">6.1.2.</span> <span class="toc-text">量词</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E7%BB%84%E5%92%8C%E6%8D%95%E8%8E%B7"><span class="toc-number">6.1.3.</span> <span class="toc-text">分组和捕获</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">6.1.4.</span> <span class="toc-text">修饰符</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%B9%E9%85%8D"><span class="toc-number">6.2.</span> <span class="toc-text">匹配</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DOM%E5%AF%B9%E8%B1%A1"><span class="toc-number">7.</span> <span class="toc-text">DOM对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#document%E5%AF%B9%E8%B1%A1"><span class="toc-number">7.1.</span> <span class="toc-text">document对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM%E5%85%83%E7%B4%A0%E5%AF%B9%E8%B1%A1"><span class="toc-number">7.2.</span> <span class="toc-text">DOM元素对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1"><span class="toc-number">7.3.</span> <span class="toc-text">事件对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BOM%E5%AF%B9%E8%B1%A1"><span class="toc-number">8.</span> <span class="toc-text">BOM对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#location%E5%AF%B9%E8%B1%A1"><span class="toc-number">8.1.</span> <span class="toc-text">location对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#navigator%E5%AF%B9%E8%B1%A1"><span class="toc-number">8.2.</span> <span class="toc-text">navigator对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#history%E5%AF%B9%E8%B1%A1"><span class="toc-number">8.3.</span> <span class="toc-text">history对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#localStorage%E5%AF%B9%E8%B1%A1"><span class="toc-number">8.4.</span> <span class="toc-text">localStorage对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E6%97%B6%E5%99%A8"><span class="toc-number">9.</span> <span class="toc-text">定时器</span></a></li></ol>
     </div>
   </section>
 
@@ -4209,7 +4505,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp"];
   let index = 0;
   let IntervalParallax = null;
 
@@ -4528,7 +4824,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"hzx's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"hzx's blog"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2024/09/28/JavaScript/","name":"JavaScript"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"hzx's blog","url":"http://example.com/","keywords":null,"description":"","author":{"@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":""},"publisher":{"@type":"Organization","name":"hzx's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"JavaScript","description":"","inLanguage":["zh-CN","en","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2024/09/28/JavaScript/"},"author":{"@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"hzx's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2024/09/28/JavaScript/","wordCount":0,"datePublished":"2024-09-28T03:21:13.000Z","dateModified":"2024-09-29T03:55:55.888Z","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"hzx's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"hzx's blog"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2024/09/28/JavaScript/","name":"JavaScript"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"hzx's blog","url":"http://example.com/","keywords":null,"description":"","author":{"@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":""},"publisher":{"@type":"Organization","name":"hzx's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"JavaScript","description":"","inLanguage":["zh-CN","en","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2024/09/28/JavaScript/"},"author":{"@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"hzx's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2024/09/28/JavaScript/","wordCount":0,"datePublished":"2024-09-28T03:21:13.000Z","dateModified":"2024-09-29T14:31:40.492Z","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
