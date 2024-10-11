@@ -1,3 +1,5 @@
+http://example.com/2024/10/12/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/
+http://example.com/2024/10/11/linux/
 http://example.com/2024/10/09/2024-10-9/
 http://example.com/2024/09/26/2024-9-26/
 http://example.com/2024/09/30/2024-9-30/
