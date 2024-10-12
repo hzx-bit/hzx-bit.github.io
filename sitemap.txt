@@ -1,3 +1,4 @@
+http://example.com/2024/10/12/node-js/
 http://example.com/2024/10/12/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/
 http://example.com/2024/10/11/linux/
 http://example.com/2024/10/09/2024-10-9/
@@ -30,6 +31,7 @@ http://example.com/tags/%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1/
 http://example.com/tags/css/
 http://example.com/tags/vue/
 http://example.com/tags/vue3/
+http://example.com/tags/node-js/
 http://example.com/categories/%E9%9A%8F%E7%AC%94/
 http://example.com/categories/%E7%85%A7%E7%89%87/
 http://example.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/
