@@ -1,4 +1,5 @@
 http://example.com/2024/10/12/node-js/
+http://example.com/2024/10/15/%E6%95%B0%E6%8D%AE%E5%BA%93/
 http://example.com/2024/09/16/react-jike/
 http://example.com/2024/09/28/JavaScript/
 http://example.com/2024/10/11/linux/
