@@ -1,9 +1,11 @@
+http://example.com/2024/10/22/Hadoop/
+http://example.com/2024/10/15/%E6%95%B0%E6%8D%AE%E5%BA%93/
+http://example.com/2024/09/21/%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1/
 http://example.com/2024/09/28/JavaScript/
 http://example.com/2024/09/16/react/
 http://example.com/2024/10/02/vue3/
 http://example.com/2024/10/17/api-server%E5%90%8E%E7%AB%AF%E9%A1%B9%E7%9B%AE/
 http://example.com/2024/10/12/node-js/
-http://example.com/2024/10/15/%E6%95%B0%E6%8D%AE%E5%BA%93/
 http://example.com/2024/09/16/react-jike/
 http://example.com/2024/10/11/linux/
 http://example.com/2024/10/12/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/
@@ -11,7 +13,6 @@ http://example.com/2024/10/09/2024-10-9/
 http://example.com/2024/09/26/2024-9-26/
 http://example.com/2024/09/30/2024-9-30/
 http://example.com/2024/10/01/vue3-rabbit%E5%B0%8F%E5%85%94%E9%B2%9C%E7%94%B5%E5%95%86%E9%A1%B9%E7%9B%AE/
-http://example.com/2024/09/21/%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1/
 http://example.com/2024/09/21/2024-9-21/
 http://example.com/2024/09/23/css/
 http://example.com/2024/09/20/git/
@@ -36,6 +37,8 @@ http://example.com/tags/vue3/
 http://example.com/tags/node-js/
 http://example.com/tags/JavaScript/
 http://example.com/tags/linux/
+http://example.com/tags/Hadoop/
+http://example.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/
 http://example.com/categories/%E9%9A%8F%E7%AC%94/
 http://example.com/categories/%E7%85%A7%E7%89%87/
 http://example.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/
