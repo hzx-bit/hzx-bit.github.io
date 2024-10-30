@@ -1,6 +1,6 @@
-http://example.com/2024/09/21/%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1/
+http://example.com/2024/10/23/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%9E%E9%AA%8C1_Hadoop%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/
 http://example.com/2024/10/27/cpp%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/
-http://example.com/2024/10/23/%E8%99%9A%E6%8B%9F%E6%9C%BA/
+http://example.com/2024/09/21/%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1/
 http://example.com/2024/10/24/uni-app/
 http://example.com/2024/10/02/vue3/
 http://example.com/2024/10/22/Hadoop/
@@ -42,8 +42,8 @@ http://example.com/tags/JavaScript/
 http://example.com/tags/linux/
 http://example.com/tags/Hadoop/
 http://example.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/
-http://example.com/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/
 http://example.com/tags/cpp/
+http://example.com/tags/Hadoop%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/
 http://example.com/categories/%E9%9A%8F%E7%AC%94/
 http://example.com/categories/%E7%85%A7%E7%89%87/
 http://example.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/
