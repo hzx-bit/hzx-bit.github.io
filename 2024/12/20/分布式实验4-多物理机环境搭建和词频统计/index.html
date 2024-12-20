@@ -5,8 +5,8 @@
   <meta name="Volantis" content="5.8.0">
   <meta charset="utf-8">
   <!-- SEO相关 -->
-  <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="http://example.com/categories/学习笔记/"/>
+  
+  <link rel="canonical" href="http://example.com/2024/12/20/分布式实验4-多物理机环境搭建和词频统计/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://unpkg.com'>
@@ -35,16 +35,21 @@
   <!-- feed -->
       <link rel="alternate" href="/atom.xml" title="hzx's blog" type="application/atom+xml">
   <!-- 页面元数据 -->
-  <title>分类：学习笔记 - hzx's blog</title>
-  <meta name="keywords" content="null">
+  <title>分布式实验4_多物理机环境搭建和词频统计 - hzx's blog</title>
+  <meta name="keywords" content="分布式实验4_多物理机环境搭建和词频统计,null">
   <meta desc name="description" content="hzx's blog - huangzhixin - hzx's blog">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="hzx&#39;s blog">
-<meta property="og:url" content="http://example.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+  
+<meta property="og:type" content="article">
+<meta property="og:title" content="分布式实验4_多物理机环境搭建和词频统计">
+<meta property="og:url" content="http://example.com/2024/12/20/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%9E%E9%AA%8C4-%E5%A4%9A%E7%89%A9%E7%90%86%E6%9C%BA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%92%8C%E8%AF%8D%E9%A2%91%E7%BB%9F%E8%AE%A1/index.html">
 <meta property="og:site_name" content="hzx&#39;s blog">
+<meta property="og:description" content="实验4 多物理机环境搭建和词频统计实验环境搭建及集群配置软件环境 CentOS-7.5 Hadoop3.1.3 jdk-8  集群配置在实验一中已经完成了Hadoop集群环境的搭建，包括静态ip的设置、jdk配置、无密钥登录的ssh服务、以及hadoop集群的配置。 实验过程 在hadoop的sbin目录下启动Hadoop集群后先查看liveDataNode数量 12&#x2F;sbin&#x2F;start-all">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+<meta property="article:published_time" content="2024-12-20T02:34:38.000Z">
+<meta property="article:modified_time" content="2024-12-20T03:24:54.712Z">
 <meta property="article:author" content="huangzhixin">
+<meta property="article:tag" content="分布式实验4_多物理机环境搭建和词频统计">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <style>
@@ -2546,7 +2551,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
       <!-- see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs -->
-      <div id="none" class='cover-wrapper  search' style="display: none;">
+      <div id="none" class='cover-wrapper post search' style="display: none;">
         
   <div id="parallax-window"></div>
 
@@ -2621,42 +2626,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="safearea">
         <div class="body-wrapper">
           
-
 <div id="l_main" class=''>
-  
-    
-      
-  <section class="post-list">
-    
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
   <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/20/分布式实验4-多物理机环境搭建和词频统计/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="hzx's blog">
@@ -2666,701 +2637,256 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <meta itemprop="description" content="">
   </span>
   
-  
+
+
   
     <span hidden>
       <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
     </span>
   
-  
+  <div class="article-meta" id="top">
     
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2024/12/20/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%9E%E9%AA%8C4-%E5%A4%9A%E7%89%A9%E7%90%86%E6%9C%BA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%92%8C%E8%AF%8D%E9%A2%91%E7%BB%9F%E8%AE%A1/"  itemprop="url">
+    
+    
+      <h1 class="title" itemprop="name headline">
         分布式实验4_多物理机环境搭建和词频统计
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        实验4 多物理机环境搭建和词频统计实验环境搭建及集群配置软件环境
-CentOS-7.5
-Hadoop3.1.3
-jdk-8
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author' itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <a itemprop="url" class='author' target="_blank" href="https://github.com/hzx-bit" rel="nofollow noopener">
+    <img itemprop="image" src="/logo/logo.png" class="lazyload" data-srcset="/logo/logo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    <p itemprop="name">HuangZhixin</p>
+  </a>
+</div>
 
-集群配置在实验一中已经完成了Hadoop集群环境的搭建，包括静态ip的设置、jdk配置、无密钥登录的ssh服务、以及hadoop集群的配置。
-实验过程
-在hadoop的sbin目录下启动Hadoop集群后先查看liveDataNode数量
-12/sbin/start-...
-      
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
+    <a class="category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+    
+      <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+        <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url"><span itemprop="name">学习笔记</span></a>
+      </span>
     
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2024-12-20T10:34:38+08:00">2024-12-20</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url"><span itemprop="name">学习笔记</span></a>
-            </span>
+
+
           
         
+          
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2024-12-20T10:34:38+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2024年12月20日</p>
+  </a>
+</div>
+
+          
+        
+        <!-- Custom Files topMeta begin-->
+        
+        <!-- Custom Files topMeta end-->
       </div>
+    
+  </div>
+
+
+  <div id="layoutHelper-page-plugins"></div>
+  <div id="post-body" itemprop="articleBody">
+    <h1 id="实验4-多物理机环境搭建和词频统计"><a href="#实验4-多物理机环境搭建和词频统计" class="headerlink" title="实验4 多物理机环境搭建和词频统计"></a>实验4 多物理机环境搭建和词频统计</h1><div class="story post-story"><h2 id="实验环境搭建及集群配置"><a href="#实验环境搭建及集群配置" class="headerlink" title="实验环境搭建及集群配置"></a>实验环境搭建及集群配置</h2><h3 id="软件环境"><a href="#软件环境" class="headerlink" title="软件环境"></a>软件环境</h3><ul>
+<li>CentOS-7.5</li>
+<li>Hadoop3.1.3</li>
+<li>jdk-8</li>
+</ul>
+<h3 id="集群配置"><a href="#集群配置" class="headerlink" title="集群配置"></a>集群配置</h3><p>在实验一中已经完成了Hadoop集群环境的搭建，包括静态ip的设置、jdk配置、无密钥登录的ssh服务、以及hadoop集群的配置。</p>
+</div><div class="story post-story"><h2 id="实验过程"><a href="#实验过程" class="headerlink" title="实验过程"></a>实验过程</h2><ol>
+<li><p>在hadoop的sbin目录下启动Hadoop集群后先查看liveDataNode数量</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/sbin/start-all.sh</span><br><span class="line">hadoop dfsadmin -report</span><br></pre></td></tr></table></figure>
+
+<p>![](C:\Users\33100\Pictures\Screenshots\屏幕截图 2024-12-20 104703.png)</p>
+</li>
+<li><p>在实验三中已经将词频统计的代码打包成jar包，并通过ssh上传到本地虚拟机了，所以直接查看jar是否上传成功</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> /home/hadoop</span><br></pre></td></tr></table></figure>
+
+<p>![](C:\Users\33100\Pictures\Screenshots\屏幕截图 2024-12-20 105029.png)</p>
+</li>
+<li><p>创建HDFS数据目录<br>创建一个多级目录，保存MapReduce的输入文件,这里继续使用之前实验三生成的input目录；创建一个目录，保存MapReduce的输出文件，最后查看（由于实验三中运行生成了output文件所以要先删除原本的）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -<span class="built_in">rm</span> -r /user/hadoop/output</span><br><span class="line">hadoop fs -<span class="built_in">mkdir</span> -p /user/hadoop/output</span><br><span class="line">hadoop fs -<span class="built_in">ls</span> /user/hadoop</span><br></pre></td></tr></table></figure>
+
+<p>![](C:\Users\33100\Pictures\Screenshots\屏幕截图 2024-12-20 111013.png)</p>
+</li>
+<li><p>创建一个文件用于词频统计并上传到HDFS的input文件中,这里继续使用之前实验三上传的input.txt</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -<span class="built_in">ls</span> /user/hadoop/input</span><br></pre></td></tr></table></figure>
+
+<p>![](C:\Users\33100\Pictures\Screenshots\屏幕截图 2024-12-20 111318.png)</p>
+</li>
+<li><p>运行WordCount程序</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop jar /home/hadoop/MapReduceDemo-1.0-SNAPSHOT.jar org.example.WordCountDriver /user/hadoop/input /user/hadoop/output</span><br></pre></td></tr></table></figure>
+
+<p>查看输出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -ls /user/hadoop/output</span><br><span class="line">hadoop fs -cat /user/hadoop/output/part-r-00000</span><br></pre></td></tr></table></figure>
+
+<p>输出如下</p>
+<p>![](C:\Users\33100\Pictures\Screenshots\屏幕截图 2024-12-20 112045.png)</p>
+</li>
+</ol>
+<p>​	 对比输入文件可知程序运行正确</p>
+<pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -<span class="built_in">cat</span> /user/hadoop/input/input.txt</span><br></pre></td></tr></table></figure>
+</code></pre>
+<p>![](C:\Users\33100\Pictures\Screenshots\屏幕截图 2024-12-20 112307.png)</p>
+</div><div class="story post-story"><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>MapReduce框架基于“分布式计算”原则，通常采用主从模式（Master-Worker）来协调和执行计算任务。它的工作原理大致如下：</p>
+<ul>
+<li>Master节点：负责将任务分配给多个Worker节点，并监控整个任务的执行。Master节点的任务通常包括：初始化作业，分配任务，跟踪任务进度，失败恢复等。</li>
+<li>Worker节点：每个Worker节点会处理Map任务或Reduce任务，具体取决于任务的阶段。Worker节点的任务包括：读取输入数据，执行Map操作，输出中间结果，执行Reduce操作等。</li>
+</ul>
+
+</div>
+  </div>
+  
+  
+    
+    <div class='footer'>
+       <!-- 参考资料、相关资料等 -->
       
-        <div>
-          <a class='readmore' href='/2024/12/20/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%9E%E9%AA%8C4-%E5%A4%9A%E7%89%A9%E7%90%86%E6%9C%BA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%92%8C%E8%AF%8D%E9%A2%91%E7%BB%9F%E8%AE%A1/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
+       <!-- 相关文章 -->
+      
+      <!-- 版权声明组件 -->
+      
+      <!-- 打赏组件 -->
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2024-12-20T11:24:54+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
+    <p>本页文档最后更新于：2024年12月20日</p>
+  </a>
 </div>
 
-          </div>
         
       
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/16/Eslint/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="hzx's blog">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="hzx's blog">
-    <meta itemprop="description" content="">
-  </span>
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%9E%E9%AA%8C4-%E5%A4%9A%E7%89%A9%E7%90%86%E6%9C%BA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%92%8C%E8%AF%8D%E9%A2%91%E7%BB%9F%E8%AE%A1/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>分布式实验4_多物理机环境搭建和词频统计</p></a></div>
+  <span hidden itemprop="keywords">分布式实验4_多物理机环境搭建和词频统计</span>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2024/12/20/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%9E%E9%AA%8C4-%E5%A4%9A%E7%89%A9%E7%90%86%E6%9C%BA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%92%8C%E8%AF%8D%E9%A2%91%E7%BB%9F%E8%AE%A1/&title=分布式实验4_多物理机环境搭建和词频统计 - hzx's blog&summary="
+          
+          >
+          
+            <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qq.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qq.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2024/12/20/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%9E%E9%AA%8C4-%E5%A4%9A%E7%89%A9%E7%90%86%E6%9C%BA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%92%8C%E8%AF%8D%E9%A2%91%E7%BB%9F%E8%AE%A1/&title=分布式实验4_多物理机环境搭建和词频统计 - hzx's blog&summary="
+          
+          >
+          
+            <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qzone.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qzone.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2024/12/20/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%9E%E9%AA%8C4-%E5%A4%9A%E7%89%A9%E7%90%86%E6%9C%BA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%92%8C%E8%AF%8D%E9%A2%91%E7%BB%9F%E8%AE%A1/&title=分布式实验4_多物理机环境搭建和词频统计 - hzx's blog&summary="
+          
+          >
+          
+            <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/weibo.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/weibo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+    <!-- Custom Files bottomMeta begin -->
+    
+    <!-- Custom Files bottomMeta end -->
+  </div>
+
+
   
   
+
   
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2024/12/16/Eslint/'>
+          <p class='title'>Eslint<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>EslintESLint 是一个用于识别和报告在 ECMAScript&#x2F;JavaScript 代码中发现的模式的工具，其目标是使代码更加一致并避免错误。
+安装确保事先运行 npm in...</p>
+        </a>
+      
+    </div>
+  
+  <!-- Custom Files postEnd begin-->
+  
+  <!-- Custom Files postEnd end-->
+</article>
+
+
+  
+
+
+  <article class="post white-box shadow floatable blur" id="comments">
     <span hidden>
-      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+      <meta itemprop="discussionUrl" content="/2024/12/20/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%9E%E9%AA%8C4-%E5%A4%9A%E7%89%A9%E7%90%86%E6%9C%BA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%92%8C%E8%AF%8D%E9%A2%91%E7%BB%9F%E8%AE%A1/index.html#comments">
     </span>
-  
-  
+    <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2024/12/16/Eslint/"  itemprop="url">
-        Eslint
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        EslintESLint 是一个用于识别和报告在 ECMAScript&#x2F;JavaScript 代码中发现的模式的工具，其目标是使代码更加一致并避免错误。
-安装确保事先运行 npm init,已经有 package.json 文件。
-1npm init -D @eslint/config@latest
 
-使用托管在 npm 上的特定可共享配置
-1npm init -D @eslint...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2024-12-16T11:28:59+08:00">2024-12-16</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url"><span itemprop="name">学习笔记</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2024/12/16/Eslint/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
+    <div id="layoutHelper-comments"></div>
 
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/30/分布式实验3-mapreduce配置与操作/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="hzx's blog">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="hzx's blog">
-    <meta itemprop="description" content="">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2024/11/30/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%9E%E9%AA%8C3-mapreduce%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%93%8D%E4%BD%9C/"  itemprop="url">
-        分布式实验3_mapreduce配置与操作
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        实验3 mapreduce配置与操作MapReduce编程规范1．Mapper阶段（1）用户自定义的Mapper要继承自己的父类
-（2）Mapper的输入数据是KV对的形式（KV的类型可自定义）
-（3）Mapper中的业务逻辑写在map()方法中
-（4）Mapper的输出数据是KV对的形式（KV的类型可自定义）
-（5）map()方法（MapTask进程）对每一个&lt;K,V&gt;调用一次...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2024-11-30T11:42:11+08:00">2024-11-30</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url"><span itemprop="name">学习笔记</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2024/11/30/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%9E%E9%AA%8C3-mapreduce%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%93%8D%E4%BD%9C/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/24/html-css/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="hzx's blog">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="hzx's blog">
-    <meta itemprop="description" content="">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2024/11/24/html-css/"  itemprop="url">
-        html&css
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        语义化标签header nav main article section aside footer
-语义化的优点:
-
-在没CSS样式的情况下，页面整体也会呈现很好的结构效果
-代码结构清晰，易于阅读，
-利于开发和维护方便其他设备解析（如屏幕阅读器）根据语义渲染网页。
-有利于搜索引擎优化（SEO），搜索引擎爬虫会根据不同的标签来赋予不同的权重
-
-HTML5新特性语义化标签音视频处理API(aud...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2024-11-24T14:57:34+08:00">2024-11-24</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url"><span itemprop="name">学习笔记</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2024/11/24/html-css/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/24/浏览器/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="hzx's blog">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="hzx's blog">
-    <meta itemprop="description" content="">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2024/11/24/%E6%B5%8F%E8%A7%88%E5%99%A8/"  itemprop="url">
-        浏览器
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        从输入URL到页面加载的全过程首先在浏览器中输入URL
-查找缓存：浏览器先查看浏览器缓存-系统缓存-路由缓存中是否有该地址页面，如果有则显示页面内容。如果没有则进行下一步。
-DNS域名解析：浏览器向DNS服务器发起请求，解析该URL中的域名对应的IP地址。DNS服务器是基于UDP的，因此会用到UDP协议。
-建立TCP连接：解析出IP地址后，根据IP地址和默认80端口，和服务器建立TCP连接
-...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2024-11-24T14:20:27+08:00">2024-11-24</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url"><span itemprop="name">学习笔记</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2024/11/24/%E6%B5%8F%E8%A7%88%E5%99%A8/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/23/http/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="hzx's blog">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="hzx's blog">
-    <meta itemprop="description" content="">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2024/11/23/http/"  itemprop="url">
-        http
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        HTTP 的基本概念互联网上应用最为广泛的一种网络协议，是一个客户端和服务器端请求和应答的标准，用于从 WWW 服务器传输超文本到本地浏览器的超文本传输协议。
-HTTP工作原理HTTP协议定义Web客户端如何从Web服务器请求Web页面，以及服务器如何把Web页面传送给客户端。客户端向服务器发送一个请求报文，服务器以一个状态行作为响应。
-HTTP请求&#x2F;响应的步骤
-客户端输入网址，浏...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2024-11-23T22:35:15+08:00">2024-11-23</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url"><span itemprop="name">学习笔记</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2024/11/23/http/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/03/分布式实验2-Hadoop-HDFS-分布式文件系统基本操作/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="hzx's blog">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="hzx's blog">
-    <meta itemprop="description" content="">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2024/11/03/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%9E%E9%AA%8C2-Hadoop-HDFS-%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/"  itemprop="url">
-        分布式实验2_Hadoop(HDFS)分布式文件系统基本操作
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        实验2 Hadoop(HDFS)分布式文件系统基本操作基本语法hadoop fs 具体命令 OR hdfs dfs 具体命令
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455Usage: hadoop fs [generic options...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2024-11-03T18:46:33+08:00">2024-11-03</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url"><span itemprop="name">学习笔记</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2024/11/03/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%9E%E9%AA%8C2-Hadoop-HDFS-%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2024/10/23/分布式实验1_Hadoop环境安装/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="hzx's blog">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="hzx's blog">
-    <meta itemprop="description" content="">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2024/10/23/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%9E%E9%AA%8C1_Hadoop%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/"  itemprop="url">
-        分布式实验1_Hadoop环境安装
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        实验1  Hadoop环境安装模板虚拟机环境准备
-安装模板虚拟机，IP 地址 192.168.10.100、主机名称 hadoop100、内存 4G、硬盘 50G
-
-hadoop100 虚拟机配置要求如下（本文 Linux 系统全部以 CentOS-7.5-x86-1804 为例）
-
-使用 yum 安装需要虚拟机可以正常上网，yum 安装前可以先测试下虚拟机联网情况
-1234[root@ha...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2024-10-23T10:37:57+08:00">2024-10-23</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url"><span itemprop="name">学习笔记</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2024/10/23/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%9E%E9%AA%8C1_Hadoop%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2024/10/15/数据库/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="hzx's blog">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="hzx's blog">
-    <meta itemprop="description" content="">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2024/10/15/%E6%95%B0%E6%8D%AE%E5%BA%93/"  itemprop="url">
-        数据库
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        数据库系统概论概述
-四个基本概念
-数据(data)：描述事物的符号记录称为数据
-数据库(DB)：长期储存在计算机内的，有组织的、可共享的大量数据的集合。
-数据库管理系统(DBMS)：计算机基础软件。具有
-数据定义功能(DDL)，定义数据对象的组成和结构
-数据组织存储和管理
-数据操纵功能（DML），实现数据的增删改查
-数据库的事务管理和运行管理
-数据库的建立和维护功能
+  </article>
 
 
 
 
-数据库系统（DB...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2024-10-15T17:17:26+08:00">2024-10-15</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url"><span itemprop="name">学习笔记</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2024/10/15/%E6%95%B0%E6%8D%AE%E5%BA%93/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2024/10/12/node-js/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="hzx's blog">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="hzx's blog">
-    <meta itemprop="description" content="">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2024/10/12/node-js/"  itemprop="url">
-        node.js
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        fs文件系统读取文件内容12345678910111213141516171819202122232425const fs = require(&quot;fs&quot;);// 异步读取fs.readFile(&#x27;input.txt&#x27;,&#x27;utf8&#x27;, function (err, data) &#123;    //如果读取成功，则err的值为nul...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2024-10-12T21:31:48+08:00">2024-10-12</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url"><span itemprop="name">学习笔记</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2024/10/12/node-js/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-      <br>
-      <div class="prev-next">
-        
-        <p class="current">
-          1 / 2
-        </p>
-        
-          <a class="next" rel="next" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/page/2/">
-            <section class="post next white-box shadow floatable blur">
-              &nbsp;下一页&nbsp;<i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
-            </section>
-          </a>
-        
-      </div>
-    
-  
 
 
-    
-  
 </div>
 <aside id='l_side' itemscope itemtype="http://schema.org/WPSideBar">
   
@@ -3369,125 +2895,6 @@ hadoop100 虚拟机配置要求如下（本文 Linux 系统全部以 CentOS-7.5-
     
     
       
-<section class="widget text desktop mobile pjax">
-  
-  <header>
-    
-      <i class="fa-brands fa-weixin fa-fw" aria-hidden="true"></i><span class='name'>添加我的微信</span>
-    
-  </header>
-
-
-  <div class='content'>
-    
-      <p><br><a href="/logo/qrcode.jpg"><img src="/logo/qrcode.jpg" class="lazyload" data-srcset="/logo/qrcode.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></a></p>
-
-    
-  </div>
-</section>
-
-    
-  
-
-  
-    
-    
-      
-    
-  
-
-  
-    
-    
-      
-<section class="widget grid desktop mobile pjax">
-  
-  <header>
-    
-      <i class="fa-solid fa-map-signs fa-fw" aria-hidden="true"></i><span class='name'>分类导航</span>
-    
-  </header>
-
-
-  <div class='content'>
-    <div class="grid navigation fixed">
-      
-        <a class="flat-box" href="https://github.com/hzx-bit/hzx-bit.github.io"
-          
-            rel="external nofollow noopener noreferrer"
-          
-          
-            target="_blank"
-          
-          active-action="action-https:githubcomhzx-bithzx-bitgithubio">
-          
-            <i class="fa-solid fa-file-code fa-fw" aria-hidden="true"></i>
-          
-          博客源码
-        </a>
-      
-        <a class="flat-box" href="https://github.com/hzx-bit/hzx-bit.github.io"
-          
-            rel="external nofollow noopener noreferrer"
-          
-          
-            target="_blank"
-          
-          active-action="action-https:githubcomhzx-bithzx-bitgithubio">
-          
-            <i class="fa-solid fa-tags fa-fw" aria-hidden="true"></i>
-          
-          更新日志
-        </a>
-      
-    </div>
-  </div>
-</section>
-
-    
-  
-
-  
-    
-    
-      
-<section class="widget desktop pjax">
-  
-  <header>
-    
-      <i class="fa-solid fa-award fa-fw" aria-hidden="true"></i><span class='name'>站点信息</span>
-    
-  </header>
-
-
-  <div class='content'>
-    <div class="webinfo">
-      
-        <div class="webinfo-item">
-          <div>文章数目：</div>
-          <div>32 篇</div>
-        </div>
-      
-
-      
-
-
-      
-
-      
-
-      
-
-      
-        <div class="webinfo-item">
-          <div>最后活动时间：</div>
-          <div id="last-update-show">2024-12-20 日</div>
-        </div>
-      
-    </div>
-  </div>
-</section>
-
     
   
 
@@ -3496,22 +2903,21 @@ hadoop100 虚拟机配置要求如下（本文 Linux 系统全部以 CentOS-7.5-
 
   
   
-<section class="widget text desktop mobile ">
-  
+
+
+  <section class="widget toc-wrapper desktop mobile " id="toc-div" >
+    
   <header>
     
-      <a href='/contributors/'><i class="fa-solid fa-plus fa-fw" aria-hidden="true"></i><span class='name'>相关信息</span></a>
+      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
-  <div class='content'>
-    
-      <p>网站采用 Hexo 搭建，仅作为个人博客使用</p>
-
-    
-  </div>
-</section>
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%8F%8A%E9%9B%86%E7%BE%A4%E9%85%8D%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text">实验环境搭建及集群配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E7%8E%AF%E5%A2%83"><span class="toc-number">1.1.</span> <span class="toc-text">软件环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E7%BE%A4%E9%85%8D%E7%BD%AE"><span class="toc-number">1.2.</span> <span class="toc-text">集群配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E8%BF%87%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">实验过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+    </div>
+  </section>
 
   
 
@@ -3552,10 +2958,23 @@ hadoop100 虚拟机配置要求如下（本文 Linux 系统全部以 CentOS-7.5-
     <!-- pjax占位 -->
   </div>
 
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
   <!-- Custom Files side begin -->
   
   <!-- Custom Files side end -->
 </aside>
+
 
 
           <!--此文件用来存放一些不方便取值的变量-->
@@ -3564,7 +2983,7 @@ hadoop100 虚拟机配置要求如下（本文 Linux 系统全部以 CentOS-7.5-
 <pjax>
 <script>
   window.pdata={}
-  pdata.ispage=false;
+  pdata.ispage=true;
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   pdata.commentConfig={};
@@ -4873,7 +4292,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"hzx's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"hzx's blog"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/学习笔记/","name":"学习笔记"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"hzx's blog","url":"http://example.com/","keywords":null,"description":"","author":{"@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":""},"publisher":{"@type":"Organization","name":"hzx's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","description":"","inLanguage":["zh-CN","en","default"],"mainEntityOfPage":{"@type":"WebPage"},"author":{"@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"hzx's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"wordCount":0,"image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"hzx's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"hzx's blog"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/学习笔记/","name":"学习笔记"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2024/12/20/分布式实验4-多物理机环境搭建和词频统计/","name":"分布式实验4_多物理机环境搭建和词频统计"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"hzx's blog","url":"http://example.com/","keywords":null,"description":"","author":{"@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":""},"publisher":{"@type":"Organization","name":"hzx's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"分布式实验4_多物理机环境搭建和词频统计","description":"","inLanguage":["zh-CN","en","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2024/12/20/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%9E%E9%AA%8C4-%E5%A4%9A%E7%89%A9%E7%90%86%E6%9C%BA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%92%8C%E8%AF%8D%E9%A2%91%E7%BB%9F%E8%AE%A1/"},"author":{"@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"hzx's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2024/12/20/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%9E%E9%AA%8C4-%E5%A4%9A%E7%89%A9%E7%90%86%E6%9C%BA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%92%8C%E8%AF%8D%E9%A2%91%E7%BB%9F%E8%AE%A1/","wordCount":0,"datePublished":"2024-12-20T02:34:38.000Z","dateModified":"2024-12-20T03:24:54.712Z","articleSection":"学习笔记","keywords":"分布式实验4_多物理机环境搭建和词频统计","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
