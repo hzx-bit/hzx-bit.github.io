@@ -43,11 +43,11 @@
 <meta property="og:title" content="计算机网络">
 <meta property="og:url" content="http://example.com/2025/02/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/index.html">
 <meta property="og:site_name" content="hzx&#39;s blog">
-<meta property="og:description" content="OSI参考模型从下往上分别是物理层，数据链路层，网络层，传输层，会话层，表示层和应用层。其中物理层在通信信道中传输原始比特流。数据链路层进行物理寻址，并且将原始比特流转化为逻辑链路。网络层进行路由选择和分组转发。传输层建立端到端的数据链接。会话层在用户间建立和管理会话，表示层进行数据格式转化和数据加密。应用层为应用程序提供服务。">
+<meta property="og:description" content="OSI参考模型从下往上分别是物理层，数据链路层，网络层，传输层，会话层，表示层和应用层。其中 物理层在通信信道中传输原始比特流。 数据链路层进行物理寻址，并且将原始比特流转化为逻辑链路。 网络层进行路由选择和分组转发。 传输层建立端到端的数据链接。 会话层在用户间建立和管理会话， 表示层进行数据格式转化和数据加密。 应用层为应用程序提供服务。 TCP&#x2F;IP网络模型链路层：负责封装和解封装">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2025-02-13T06:49:08.000Z">
-<meta property="article:modified_time" content="2025-02-13T07:05:15.693Z">
+<meta property="article:modified_time" content="2025-03-03T13:26:18.129Z">
 <meta property="article:author" content="huangzhixin">
 <meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary">
@@ -1766,7 +1766,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1739453358016),
+    lastupdate: new Date(1741008986916),
     sidebar: {
       for_page: ["weChat","post","guide","webinfo"],
       for_post: ["toc"],
@@ -2699,7 +2699,105 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <div class="story post-story"><h2 id="OSI参考模型"><a href="#OSI参考模型" class="headerlink" title="OSI参考模型"></a>OSI参考模型</h2><p>从下往上分别是物理层，数据链路层，网络层，传输层，会话层，表示层和应用层。其中物理层在通信信道中传输原始比特流。数据链路层进行物理寻址，并且将原始比特流转化为逻辑链路。网络层进行路由选择和分组转发。传输层建立端到端的数据链接。会话层在用户间建立和管理会话，表示层进行数据格式转化和数据加密。应用层为应用程序提供服务。</p>
+    <div class="story post-story"><h2 id="OSI参考模型"><a href="#OSI参考模型" class="headerlink" title="OSI参考模型"></a>OSI参考模型</h2><p>从下往上分别是物理层，数据链路层，网络层，传输层，会话层，表示层和应用层。其中</p>
+<p>物理层在通信信道中传输原始比特流。</p>
+<p>数据链路层进行物理寻址，并且将原始比特流转化为逻辑链路。</p>
+<p>网络层进行路由选择和分组转发。</p>
+<p>传输层建立端到端的数据链接。</p>
+<p>会话层在用户间建立和管理会话，</p>
+<p>表示层进行数据格式转化和数据加密。</p>
+<p>应用层为应用程序提供服务。</p>
+</div><div class="story post-story"><h2 id="TCP-IP网络模型"><a href="#TCP-IP网络模型" class="headerlink" title="TCP&#x2F;IP网络模型"></a>TCP&#x2F;IP网络模型</h2><p>链路层：负责封装和解封装IP报文，发送和接受ARP&#x2F;RARP报文等。<br>网络层：负责路由以及把分组报文发送给目标网络或主机。<br>传输层：负责对报文进行分组和重组，并以TCP或UDP协议格式封装报文。<br>应用层：负责向用户提供应用程序，比如HTTP、FTP、Telnet、DNS、SMTP等。</p>
+</div><div class="story post-story"><h2 id="HTTP请求-响应的步骤"><a href="#HTTP请求-响应的步骤" class="headerlink" title="HTTP请求&#x2F;响应的步骤"></a>HTTP请求&#x2F;响应的步骤</h2><ol>
+<li>用户在浏览器地址栏输入URL,URL由协议、域名、端口号、文件路径组成，没有文件路径的时候，就会访问根目录下的默认文件，例如index.html</li>
+<li>浏览器检查本地缓存是否有该域名对应的IP地址。如果缓存中没有，浏览器会通过递归方式请求本地DNS服务器、本地DNS服务器通过迭代方式请求根域名服务器、顶级域名服务器、权威域名服务器等，最终将IP地址返回给客户端，这个过程中浏览器、操作系统、各级DNS服务器都会先查看本地缓存，没有记录再去查询</li>
+<li>浏览器通过IP地址和端口号与服务器建立TCP连接。也就是”三次握手“过程，如果是HTTPS协议，还会进行TLS&#x2F;SSL握手，确保通信安全。</li>
+<li>浏览器向服务器发送HTTP请求，请求头中包含浏览器信息、支持的编码格式、Cookie等。服务器接收到请求后，根据路径和参数处理请求，生成响应内容。</li>
+<li>服务器将响应数据和HTTP状态码返回给浏览器。响应头中包含内容类型、缓存策略等信息。</li>
+<li>览器接收到响应后，开始解析HTML文件。解析过程中，浏览器会加载HTML中的CSS、JavaScript、图片等资源。浏览器构建DOM树、CSSOM树，合并生成渲染树，最后进行布局和绘制，将页面显示在屏幕上。</li>
+<li>当所有资源加载完毕，页面完全渲染后，浏览器触发load事件，页面加载完成。</li>
+<li>TCP连接关闭（四次挥手）</li>
+</ol>
+</div><div class="story post-story"><h2 id="在浏览器中输入URL到显示页面经历哪些过程，涉及到哪些协议？"><a href="#在浏览器中输入URL到显示页面经历哪些过程，涉及到哪些协议？" class="headerlink" title="在浏览器中输入URL到显示页面经历哪些过程，涉及到哪些协议？"></a>在浏览器中输入URL到显示页面经历哪些过程，涉及到哪些协议？</h2><p>浏览器要将URL解析为IP地址，解析域名就要用到DNS协议，</p>
+<p>DNS服务器是基于UDP的，因此会用到UDP协议。</p>
+<p>得到IP地址后，浏览器就要与服务器建立一个http连接。因此要用到http协议。</p>
+<p>http生成一个get请求报文，将该报文传给TCP层处理，所以还会用到TCP协议。</p>
+<p>然后会发送给IP层，用到IP协议。IP层通过路由选路，一跳一跳发送到目的地址。</p>
+<p>当然在一个网段内的寻址是通过以太网协议实现(也可以是其他物理层协议，比如PPP，SLIP)，</p>
+<p>以太网协议需要直到目的IP地址的物理地址，有需要ARP协议。</p>
+</div><div class="story post-story"><h2 id="HTTP-的-5-种方法"><a href="#HTTP-的-5-种方法" class="headerlink" title="HTTP 的 5 种方法"></a>HTTP 的 5 种方法</h2><p>GET—获取资源<br>POST—传输资源<br>PUT—更新资源<br>DELETE—删除资源<br>HEAD—获取报文首部</p>
+</div><div class="story post-story"><h2 id="POST请求和GET请求"><a href="#POST请求和GET请求" class="headerlink" title="POST请求和GET请求"></a>POST请求和GET请求</h2><ul>
+<li><p>GET传递的参数在url后拼接，不安全。POST传递的参数在request body中，更安全。</p>
+</li>
+<li><p>GET对数据进行查询，POST主要对数据进行增删改！</p>
+</li>
+<li><p>GET在浏览器回退时是无害的，而POST会再次提交请求</p>
+</li>
+<li><p>GET请求会被浏览器主动缓存，POST不会，要手动设置</p>
+</li>
+<li><p>GET请求长度有限制，POST没有</p>
+</li>
+</ul>
+</div><div class="story post-story"><h2 id="HTTP报文的组成成分"><a href="#HTTP报文的组成成分" class="headerlink" title="HTTP报文的组成成分"></a>HTTP报文的组成成分</h2><p>请求报文{ 请求行、请求头、空行、请求体 } </p>
+<p>响应报文{ 状态行、响应头、空行、响应体 }</p>
+<p>Request Header:<br>GET &#x2F;sample.Jsp HTTP&#x2F;1.1 &#x2F;&#x2F;请求行：{http方法、页面地址、http协议、http版本}<br>Host: <a target="_blank" rel="noopener" href="http://www.uuid.online/">www.uuid.online/</a> &#x2F;&#x2F;请求的目标域名和端口号<br>Origin: <a target="_blank" rel="noopener" href="http://localhost:8081/">http://localhost:8081/</a> &#x2F;&#x2F;请求的来源域名和端口号 （跨域请求时，浏览器会自动带上这个头信息）<br>Referer: <a target="_blank" rel="noopener" href="https://localhost:8081/link?query=xxxxx">https://localhost:8081/link?query=xxxxx</a> &#x2F;&#x2F;请求资源的完整URI<br>User-Agent: Mozilla&#x2F;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Chrome&#x2F;67.0.3396.99 Safari&#x2F;537.36 &#x2F;&#x2F;浏览器信息<br>Cookie: BAIDUID&#x3D;FA89F036:FG&#x3D;1; BD_HOME&#x3D;1; sugstore&#x3D;0 &#x2F;&#x2F;当前域名下的Cookie<br>Accept: text&#x2F;html,image&#x2F;apng &#x2F;&#x2F;代表客户端希望接受的数据类型是html或者是png图片类型<br>Accept-Encoding: gzip, deflate &#x2F;&#x2F;代表客户端能支持gzip和deflate格式的压缩<br>Accept-Language: zh-CN,zh;q&#x3D;0.9 &#x2F;&#x2F;代表客户端可以支持语言zh-CN或者zh(值得一提的是q(0~1)是优先级权重的意思，不写默认为1，这里zh-CN是1，zh是0.9)<br>Connection: keep-alive &#x2F;&#x2F;告诉服务器，客户端需要的tcp连接是一个长连接</p>
+<p>Response Header:<br>HTTP&#x2F;1.1 200 OK &#x2F;&#x2F; 响应状态行：{http协议、http版本 响应码 状态}<br>Date: Mon, 30 Jul 2018 02:50:55 GMT &#x2F;&#x2F;服务端发送资源时的服务器时间<br>Expires: Wed, 31 Dec 1969 23:59:59 GMT &#x2F;&#x2F;比较过时的一种验证缓存的方式，与浏览器（客户端）的时间比较，超过这个时间就不用缓存（不和服务器进行验证），适合版本比较稳定的网页<br>Cache-Control: no-cache &#x2F;&#x2F; 现在最多使用的控制缓存的方式，会和服务器进行缓存验证<br>etag: “fb8ba2f80b1d324bb997cbe188f28187-ssl-df” &#x2F;&#x2F; 一般是Nginx静态服务器发来的静态文件签名，浏览在没有“Disabled cache”情况下，接收到etag后，同一个url第二次请求就会自动带上“If-None-Match”<br>Last-Modified: Fri, 27 Jul 2018 11:04:55 GMT &#x2F;&#x2F;是服务器发来的当前资源最后一次修改的时间，下次请求时，如果服务器上当前资源的修改时间大于这个时间，就返回新的资源内容<br>Content-Type: text&#x2F;html; charset&#x3D;utf-8 &#x2F;&#x2F;如果返回是流式的数据，我们就必须告诉浏览器这个头，不然浏览器会下载这个页面，同时告诉浏览器是utf8编码，否则可能出现乱码<br>Content-Encoding: gzip &#x2F;&#x2F;告诉客户端，应该采用gzip对资源进行解码<br>Connection: keep-alive &#x2F;&#x2F;告诉客户端服务器的tcp连接也是一个长连接</p>
+</div><div class="story post-story"><h2 id="http-和-https-的区别？"><a href="#http-和-https-的区别？" class="headerlink" title="http 和 https 的区别？"></a>http 和 https 的区别？</h2><p>• http 是超文本传输协议，信息是明文传输，https 则是具有安全性的 ssl 加密传输协议。<br>• https 协议需要 ca 证书，费用较高。<br>• http 协议的端口为 80，https 的端口为 443。<br>• http 的连接很简单，是无状态的。</p>
+</div><div class="story post-story"><h2 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h2><ol>
+<li>一开始，客户端和服务端都处于CLOSED状态。先是服务端主动监听某个端口(HTTP默认端口号80,HTTPS默认端口号是443),处于LISTEN状态</li>
+<li>然后客户端主动发起连接SYN,之后处于SYN-SENT状态。</li>
+<li>服务端收到发起的连接，返回SYN,并且ACK客户端的SYN,之后处于SYN-RCVD状态</li>
+<li>容户端收到服务端发送的SYN和ACK之后，发送对SYN确认的ACK,之后处于ESTABLISHED状态。</li>
+<li>服务端收到ACK的ACK之后，处于ESTABLISHED状态</li>
+</ol>
+</div><div class="story post-story"><h2 id="TCP-四次挥手"><a href="#TCP-四次挥手" class="headerlink" title="TCP 四次挥手"></a>TCP 四次挥手</h2><ol>
+<li>客户端进程发出连接释放报文，进入FIN-WAIT-1状态，并且停止发送数据。服务器收到连接释放报文，发出确认报文, 此时，服务端就进入了CLOSE-WAIT状态。这时候处于半关闭状态，即客户端已经没有数据要发送了，但是服务器若发送数据，客户端依然要接受。这个状态还要持续一段时间，也就是整个CLOSE-WAIT状态持续的时间。</li>
+<li>客户端收到服务器的确认请求后，此时，客户端就进入FIN-WAIT-2状态，等待服务器发送连接释放报文（在这之前还需要接受服务器发送的最后的数据）。</li>
+<li>服务器将最后的数据发送完毕后，就向客户端发送连接释放报文，此时，服务器就进入了LAST-ACK状态，等待客户端的确认。</li>
+<li>客户端收到服务器的连接释放报文后，必须发出确认,此时，客户端就进入了TIME-WAIT状态。注意此时TCP连接还没有释放，必须经过2∗MSL（最长报文段寿命）的时间后，才进入CLOSED状态。服务器只要收到了客户端发出的确认，立即进入CLOSED状态。可以看到，服务器结束TCP连接的时间要比客户端早一些。</li>
+</ol>
+</div><div class="story post-story"><h2 id="TCP和UDP的区别"><a href="#TCP和UDP的区别" class="headerlink" title="TCP和UDP的区别"></a>TCP和UDP的区别</h2><p>TCP的三次握手保证了连接的可靠性; UDP是无连接的、不可靠的一种数据传输协议。</p>
+<p>TCP仅支持单播传输，UDP 提供了单播，多播，广播的功能。</p>
+<p>UDP的头部开销比TCP的更小，数据传输速率更高，实时性更好。</p>
+</div><div class="story post-story"><h2 id="Cookie、sessionStorage、localStorage-的区别"><a href="#Cookie、sessionStorage、localStorage-的区别" class="headerlink" title="Cookie、sessionStorage、localStorage 的区别"></a>Cookie、sessionStorage、localStorage 的区别</h2><p>相同点：存储在客户端<br>不同点：</p>
+<p>cookie数据大小不能超过4k；sessionStorage和localStorage的存储比cookie大得多，可以达到5M+<br>cookie设置的过期时间之前一直有效；localStorage永久存储，浏览器关闭后数据不丢失除非主动删除数据；sessionStorage数据在当前浏览器窗口关闭后自动删除<br>cookie的数据会自动的传递到服务器；sessionStorage和localStorage数据保存在本地</p>
+</div><div class="story post-story"><h2 id="HTTP状态码及常见状态码"><a href="#HTTP状态码及常见状态码" class="headerlink" title="HTTP状态码及常见状态码"></a>HTTP状态码及常见状态码</h2><h3 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h3><p>• 1xx：指示信息类，表示请求已接受，继续处理<br>• 2xx：指示成功类，表示请求已成功接受<br>• 3xx：指示重定向，表示要完成请求必须进行更近一步的操作<br>• 4xx：指示客户端错误，请求有语法错误或请求无法实现<br>• 5xx：指示服务器错误，服务器未能实现合法的请求</p>
+<h3 id="常见状态码"><a href="#常见状态码" class="headerlink" title="常见状态码"></a>常见状态码</h3><p>• 200 OK：客户端请求成功<br>• 301 Moved Permanently：所请求的页面已经永久重定向至新的URL<br>• 302 Found：所请求的页面已经临时重定向至新的URL<br>• 304 Not Modified 未修改<br>• 403 Forbidden：对请求页面的访问被禁止<br>• 404 Not Found：请求资源不存在<br>• 500 Internal Server Error：服务器发生不可预期的错误原来缓冲的文档还可以继续使用<br>• 503 Server Unavailable：请求未完成，服务器临时过载或宕机，一段时间后可恢复正常</p>
+</div><div class="story post-story"><h2 id="HTTP-请求跨域问题"><a href="#HTTP-请求跨域问题" class="headerlink" title="HTTP 请求跨域问题"></a>HTTP 请求跨域问题</h2><h3 id="跨域的原理"><a href="#跨域的原理" class="headerlink" title="跨域的原理"></a>跨域的原理</h3><p>跨域，是指浏览器不能执行其他网站的脚本。它是由浏览器的同源策略造成的。跨域访问是被各大浏览器所默认禁止的。<br>同源策略,是浏览器对 JavaScript 实施的安全限制，只要协议、域名、端口有任何一个不同，都被当作是不同的域。<br>跨域原理，即是通过各种方式，避开浏览器的安全限制。</p>
+<h3 id="同源策略的作用"><a href="#同源策略的作用" class="headerlink" title="同源策略的作用"></a>同源策略的作用</h3><p>①无法用js读取非同源的Cookie、LocalStorage 和 IndexDB<br>这个主要是为了防止恶意网站通过js获取用户其他网站的cookie等用户信息。</p>
+<p>②无法用js获取非同源的DOM<br>防止恶意网站通过iframe获取页面dom，从而窃取页面的信息。</p>
+<p>③无法用js发送非同源的AJAX请求<br>防止恶意的请求攻击服务器窃取数据信息。</p>
+<h3 id="跨域资源共享"><a href="#跨域资源共享" class="headerlink" title="跨域资源共享"></a>跨域资源共享</h3><p><strong>原理：</strong>CORS由一系列HTTP响应头组成，这些响应头决定浏览器是否阻止前端JS代码跨域获取资源。浏览器的同源安全策略（协议、ip地址、端口号必须相同）默认会阻止网页”跨域“获取资源。但是如果接口服务器配置了CORS相关的HTTP响应头，就可以解除浏览器端的跨域访问限制。</p>
+<table>
+<thead>
+<tr>
+<th>CORS响应头部</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>res.setHeader(‘Access-Control-Allow-Origin’,’*’)</td>
+<td>设置允许访问该资源的外域URL</td>
+</tr>
+<tr>
+<td>res.setHeader(‘Access-Control-Allow-Headers’,’X-Custom-Header’)</td>
+<td>对额外的请求头进行声明</td>
+</tr>
+<tr>
+<td>res.setHeader(‘Access-Control-Allow-Methods’,’*’)</td>
+<td>设置实际请求所允许使用的HTTP方法</td>
+</tr>
+</tbody></table>
+<h3 id="预检请求"><a href="#预检请求" class="headerlink" title="预检请求"></a>预检请求</h3><p>只要符合以下任何条件之一，都需要进行预检请求：</p>
+<ol>
+<li>请求方式为GET、POST、HEAD之外的请求Method类型</li>
+<li>请求头中包含自定义头部字段</li>
+<li>向服务器发送了application&#x2F;json格式的数据</li>
+</ol>
+<p>在浏览器与服务器正式通信之前，浏览器会先发送OPTION请求进行预检，以获知服务器是否允许该实际请求，所以这一次的OPTION请求称为“预检请求”。服务器成功响应预检请求后，才会发送真正的请求，并携带真实数据。</p>
+<h3 id="JSONP接口"><a href="#JSONP接口" class="headerlink" title="JSONP接口"></a>JSONP接口</h3><p>浏览器通过<code>&lt;script&gt;</code>标签的src属性，请求服务器上的数据，同时，服务器返回一个函数的调用。这种请求数据的方式叫做JSONP</p>
+<p>JSONP不属于真正的Ajax请求，没有使用XMLHttpRequest这个对象。JSONP仅支持GET请求，不支持POST、PUT、DELETE请求。需要后台配合，将返回结果包装成callback(res)的形式。</p>
+<p>JSONP接口要声明在CORS接口之前</p>
 
 </div>
   </div>
@@ -2725,10 +2823,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2025-02-13T15:05:15+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2025-03-03T21:26:18+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2025年2月13日</p>
+    <p>本页文档最后更新于：2025年3月3日</p>
   </a>
 </div>
 
@@ -2872,7 +2970,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">OSI参考模型</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">OSI参考模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-IP%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">TCP&#x2F;IP网络模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP%E8%AF%B7%E6%B1%82-%E5%93%8D%E5%BA%94%E7%9A%84%E6%AD%A5%E9%AA%A4"><span class="toc-number">3.</span> <span class="toc-text">HTTP请求&#x2F;响应的步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E8%BE%93%E5%85%A5URL%E5%88%B0%E6%98%BE%E7%A4%BA%E9%A1%B5%E9%9D%A2%E7%BB%8F%E5%8E%86%E5%93%AA%E4%BA%9B%E8%BF%87%E7%A8%8B%EF%BC%8C%E6%B6%89%E5%8F%8A%E5%88%B0%E5%93%AA%E4%BA%9B%E5%8D%8F%E8%AE%AE%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">在浏览器中输入URL到显示页面经历哪些过程，涉及到哪些协议？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP-%E7%9A%84-5-%E7%A7%8D%E6%96%B9%E6%B3%95"><span class="toc-number">5.</span> <span class="toc-text">HTTP 的 5 种方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#POST%E8%AF%B7%E6%B1%82%E5%92%8CGET%E8%AF%B7%E6%B1%82"><span class="toc-number">6.</span> <span class="toc-text">POST请求和GET请求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP%E6%8A%A5%E6%96%87%E7%9A%84%E7%BB%84%E6%88%90%E6%88%90%E5%88%86"><span class="toc-number">7.</span> <span class="toc-text">HTTP报文的组成成分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http-%E5%92%8C-https-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">8.</span> <span class="toc-text">http 和 https 的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B"><span class="toc-number">9.</span> <span class="toc-text">三次握手</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B"><span class="toc-number">10.</span> <span class="toc-text">TCP 四次挥手</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP%E5%92%8CUDP%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">11.</span> <span class="toc-text">TCP和UDP的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cookie%E3%80%81sessionStorage%E3%80%81localStorage-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">12.</span> <span class="toc-text">Cookie、sessionStorage、localStorage 的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP%E7%8A%B6%E6%80%81%E7%A0%81%E5%8F%8A%E5%B8%B8%E8%A7%81%E7%8A%B6%E6%80%81%E7%A0%81"><span class="toc-number">13.</span> <span class="toc-text">HTTP状态码及常见状态码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP%E7%8A%B6%E6%80%81%E7%A0%81"><span class="toc-number">13.1.</span> <span class="toc-text">HTTP状态码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%8A%B6%E6%80%81%E7%A0%81"><span class="toc-number">13.2.</span> <span class="toc-text">常见状态码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP-%E8%AF%B7%E6%B1%82%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98"><span class="toc-number">14.</span> <span class="toc-text">HTTP 请求跨域问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%A8%E5%9F%9F%E7%9A%84%E5%8E%9F%E7%90%86"><span class="toc-number">14.1.</span> <span class="toc-text">跨域的原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">14.2.</span> <span class="toc-text">同源策略的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%A8%E5%9F%9F%E8%B5%84%E6%BA%90%E5%85%B1%E4%BA%AB"><span class="toc-number">14.3.</span> <span class="toc-text">跨域资源共享</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%84%E6%A3%80%E8%AF%B7%E6%B1%82"><span class="toc-number">14.4.</span> <span class="toc-text">预检请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JSONP%E6%8E%A5%E5%8F%A3"><span class="toc-number">14.5.</span> <span class="toc-text">JSONP接口</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -3930,7 +4028,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp"];
   let index = 0;
   let IntervalParallax = null;
 
@@ -4249,7 +4347,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"hzx's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"hzx's blog"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/学习笔记/","name":"学习笔记"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2025/02/13/计算机网络/","name":"计算机网络"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"hzx's blog","url":"http://example.com/","keywords":null,"description":"","author":{"@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":""},"publisher":{"@type":"Organization","name":"hzx's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"计算机网络","description":"","inLanguage":["zh-CN","en","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2025/02/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"},"author":{"@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"hzx's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2025/02/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/","wordCount":0,"datePublished":"2025-02-13T06:49:08.000Z","dateModified":"2025-02-13T07:05:15.693Z","articleSection":"学习笔记","keywords":"计算机网络","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"hzx's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"hzx's blog"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/学习笔记/","name":"学习笔记"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2025/02/13/计算机网络/","name":"计算机网络"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"hzx's blog","url":"http://example.com/","keywords":null,"description":"","author":{"@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":""},"publisher":{"@type":"Organization","name":"hzx's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"计算机网络","description":"","inLanguage":["zh-CN","en","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2025/02/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"},"author":{"@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"hzx's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2025/02/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/","wordCount":0,"datePublished":"2025-02-13T06:49:08.000Z","dateModified":"2025-03-03T13:26:18.129Z","articleSection":"学习笔记","keywords":"计算机网络","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
