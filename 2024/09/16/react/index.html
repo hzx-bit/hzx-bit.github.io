@@ -43,11 +43,11 @@
 <meta property="og:title" content="react">
 <meta property="og:url" content="http://example.com/2024/09/16/react/index.html">
 <meta property="og:site_name" content="hzx&#39;s blog">
-<meta property="og:description" content="跨域代理配置 npm install http-proxy-middleware –save  npm install axios  新建setupProxy.js文件 123456789101112const &#123; createProxyMiddleware &#125; &#x3D; require(&#x27;http-proxy-middleware&#x27;); module.expor">
+<meta property="og:description" content="目录结构   文件夹 作用    apis 接口   assets 静态资源   components 通用组件   pages 页面级组件   router 路由Router   store Redux状态   utils 工具函数   安装依赖12npm i sass @craco&#x2F;craco -Dnpm i antd react-router-dom axios @reduxjs&#x2F;toolk">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2024-09-16T02:24:16.000Z">
-<meta property="article:modified_time" content="2024-11-14T11:38:25.747Z">
+<meta property="article:modified_time" content="2025-04-09T14:50:36.117Z">
 <meta property="article:author" content="huangzhixin">
 <meta property="article:tag" content="react">
 <meta name="twitter:card" content="summary">
@@ -1766,7 +1766,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1741189096535),
+    lastupdate: new Date(1744210647475),
     sidebar: {
       for_page: ["weChat","post","guide","webinfo"],
       for_post: ["toc"],
@@ -2699,7 +2699,103 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <h3 id="跨域代理配置"><a href="#跨域代理配置" class="headerlink" title="跨域代理配置"></a>跨域代理配置</h3><ul>
+    <h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><table>
+<thead>
+<tr>
+<th>文件夹</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>apis</td>
+<td>接口</td>
+</tr>
+<tr>
+<td>assets</td>
+<td>静态资源</td>
+</tr>
+<tr>
+<td>components</td>
+<td>通用组件</td>
+</tr>
+<tr>
+<td>pages</td>
+<td>页面级组件</td>
+</tr>
+<tr>
+<td>router</td>
+<td>路由Router</td>
+</tr>
+<tr>
+<td>store</td>
+<td>Redux状态</td>
+</tr>
+<tr>
+<td>utils</td>
+<td>工具函数</td>
+</tr>
+</tbody></table>
+<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i sass @craco/craco -D</span><br><span class="line">npm i antd react-router-dom axios @reduxjs/toolkit react-redux </span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="配置别名路径"><a href="#配置别名路径" class="headerlink" title="配置别名路径"></a>配置别名路径</h3><ul>
+<li>项目根目录创建craco.config.js，添加路径解析配置</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="attr">webpack</span>:&#123;</span><br><span class="line">        <span class="attr">alias</span>:&#123;</span><br><span class="line">            <span class="string">&#x27;@&#x27;</span>:path.<span class="title function_">resolve</span>(__dirname,<span class="string">&#x27;src&#x27;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>package.json中配置启动和打包配置</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;start&quot;</span>: <span class="string">&quot;craco start&quot;</span>,</span><br><span class="line">    <span class="string">&quot;build&quot;</span>: <span class="string">&quot;craco build&quot;</span>,</span><br><span class="line">    <span class="string">&quot;test&quot;</span>: <span class="string">&quot;craco test&quot;</span>,</span><br><span class="line">    <span class="string">&quot;eject&quot;</span>: <span class="string">&quot;react-scripts eject&quot;</span></span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="配置路由"><a href="#配置路由" class="headerlink" title="配置路由"></a>配置路由</h3><ul>
+<li><p>page文件夹放置路由组件<code>&lt;Outlet/&gt;</code>,或navigate&#x3D;useNavigate()，调用navigate()函数</p>
+</li>
+<li><p>router文件夹配置路由 createBrowserRouter</p>
+</li>
+<li><p>index.js 提供路由 <code>&lt;RouterProvider router=&#123;router&#125;/&gt;</code></p>
+</li>
+<li><p>获取parameter</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">navigate</span>(<span class="string">&#x27;/article?id=1001&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> [params] = <span class="title function_">useSearchParams</span>()</span><br><span class="line"><span class="keyword">let</span> id = params.<span class="title function_">get</span>(<span class="string">&#x27;id&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">path</span>:<span class="string">&#x27;/article/:id/:name&#x27;</span></span><br><span class="line"><span class="title function_">navigate</span>(<span class="string">&#x27;/article/1001/jack&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> params = <span class="title function_">useParams</span>()</span><br><span class="line"><span class="keyword">let</span> id = params.<span class="property">id</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="刷新页面"><a href="#刷新页面" class="headerlink" title="刷新页面"></a>刷新页面</h3><p>window.location.reload()</p>
+<h3 id="项目打包"><a href="#项目打包" class="headerlink" title="项目打包"></a>项目打包</h3><ul>
+<li>npm run build</li>
+<li>serve -s build</li>
+</ul>
+<h3 id="路由懒加载"><a href="#路由懒加载" class="headerlink" title="路由懒加载"></a>路由懒加载</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">Home</span> = <span class="title function_">lazy</span>(<span class="function">()=&gt;</span><span class="keyword">import</span>(<span class="string">&quot;@/pages/Home&quot;</span>))</span><br><span class="line">&lt;<span class="title class_">Suspense</span>  fallback=&#123;<span class="string">&#x27;加载中&#x27;</span>&#125;&gt;<span class="language-xml"><span class="tag">&lt;<span class="name">Home</span>/&gt;</span></span>&lt;/<span class="title class_">Suspense</span>&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="包体积可视化分析"><a href="#包体积可视化分析" class="headerlink" title="包体积可视化分析"></a>包体积可视化分析</h3><ul>
+<li><p>npm i source-map-explore</p>
+</li>
+<li><p>package.json中配置</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;start&quot;</span><span class="punctuation">:</span> <span class="string">&quot;craco start&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;build&quot;</span><span class="punctuation">:</span> <span class="string">&quot;craco build&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;test&quot;</span><span class="punctuation">:</span> <span class="string">&quot;craco test&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;eject&quot;</span><span class="punctuation">:</span> <span class="string">&quot;react-scripts eject&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;analyze&quot;</span><span class="punctuation">:</span><span class="string">&quot;source-map-explorer &#x27;build/static/js/*.js&#x27;&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>npm run analyze</p>
+</li>
+</ul>
+<h3 id="CDN优化"><a href="#CDN优化" class="headerlink" title="CDN优化"></a>CDN优化</h3><ul>
+<li><p>CDN是一种内容分发网络服务，当用户请求网站内容时，由离用户最近的服务器将缓存的资源内容传递给用户</p>
+</li>
+<li><p>体积较大的非业务js文件，比如react、react-dom可以放到CDN服务器</p>
+<ol>
+<li>体积较大，需要利用CDN文件在浏览器的缓存特性，加快加载时间</li>
+<li>非业务JS文件，不需要经常做变动，CDN不用频繁更新缓存</li>
+</ol>
+</li>
+<li><p>具体做法</p>
+<ul>
+<li>把需要做CDN缓存的文件排除在打包之外</li>
+<li>以CDN的方式重新引入资源</li>
+</ul>
+</li>
+</ul>
+<h3 id="跨域代理配置"><a href="#跨域代理配置" class="headerlink" title="跨域代理配置"></a>跨域代理配置</h3><ul>
 <li><p>npm install http-proxy-middleware –save</p>
 </li>
 <li><p>npm install axios</p>
@@ -2718,19 +2814,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-<h3 id="lodash（排序）"><a href="#lodash（排序）" class="headerlink" title="lodash（排序）"></a>lodash（排序）</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> _ <span class="keyword">from</span> <span class="string">&#x27;lodash&#x27;</span></span><br><span class="line">_.<span class="title function_">orderBy</span>(list,<span class="string">&#x27;key&#x27;</span>,<span class="string">&#x27;desc&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="classNames（高亮切换）"><a href="#classNames（高亮切换）" class="headerlink" title="classNames（高亮切换）"></a>classNames（高亮切换）</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> classNames <span class="keyword">from</span> <span class="string">&#x27;classnames&#x27;</span></span><br><span class="line">&lt;className=&#123;<span class="title function_">classNames</span>(<span class="string">&#x27;normal-style&#x27;</span>,&#123;<span class="string">&#x27;active&#x27;</span>:type===item.<span class="property">type</span>&#125;)&#125;&gt;</span><br><span class="line">&lt;className=&#123;<span class="title function_">classNames</span>(<span class="string">&#x27;normal-style&#x27;</span>,type===item.<span class="property">type</span>&amp;&amp;<span class="string">&#x27;active&#x27;</span>)&#125;&gt;</span><br></pre></td></tr></table></figure>
 
 
 
 <h3 id="uuid"><a href="#uuid" class="headerlink" title="uuid"></a>uuid</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; v4 <span class="keyword">as</span> uuidv4 &#125; <span class="keyword">from</span> <span class="string">&#x27;uuid&#x27;</span>;</span><br><span class="line"><span class="title function_">uuidv4</span>();</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="dayjs"><a href="#dayjs" class="headerlink" title="dayjs"></a>dayjs</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> dayjs <span class="keyword">from</span> <span class="string">&#x27;dayjs&#x27;</span></span><br><span class="line"><span class="title function_">dayjs</span>().<span class="title function_">format</span>();</span><br></pre></td></tr></table></figure>
 
 
 
@@ -2771,15 +2859,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>npm run serve</li>
 </ul>
 <h3 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h3><ul>
-<li><p>npm i @reduxjs&#x2F;toolkit react-redux</p>
-</li>
-<li><p>Store（仓库）： Store 是应用程序状态的中央存储库。它包含了整个应用程序的状态树，即一个 JavaScript 对象。Redux 规定了应用程序状态只能通过 Store 来管理和修改，确保了状态的单一数据源。通过 createStore 函数来创建 Store。</p>
-<p>Action（动作）： Action 是描述发生了什么事件的普通 JavaScript 对象。它们是将数据从应用程序传递到 Store 的唯一方式。每个 Action 都必须包含一个 type 属性，表示动作的类型，以及可选的 payload 属性，用于传递数据。Action 只用于描述事件，不进行状态的修改。</p>
-<p>Reducer（归纳器）： Reducer 是一个纯函数，用于定义应用程序状态的修改方式。Reducer 接收当前状态和一个 Action，根据 Action 的类型来返回一个新的状态。Redux 应用程序通常包含多个 Reducer，每个 Reducer 负责管理状态树的一部分。Reducer 应当保持纯净，不应该产生副作用。</p>
-<p>Dispatch（分发）： Dispatch 是一个函数，用于将 Action 发送到 Store，以便触发状态的修改。当组件需要修改应用程序的状态时，它会创建一个 Action 并将其分发到 Store。Dispatch 将 Action 发送给 Reducer，Reducer 根据 Action 的类型来更新状态。</p>
-<p>Middleware（中间件）： Middleware 是 Redux 的一个扩展点，用于在 Action 发送到 Reducer 之前或之后执行额外的逻辑。例如，可以使用 Middleware 来处理异步操作、记录日志、路由导航等。Redux 提供了一些内置的 Middleware，也可以编写自定义 Middleware。</p>
-<p>Selectors（选择器）： 选择器是用于从应用程序状态中提取数据的函数。它们可以帮助组件获取所需的状态，同时封装了状态的结构和访问方式。Selectors 有助于减少组件对状态的直接依赖，提高代码的可维护性。</p>
-</li>
+<li>npm i @reduxjs&#x2F;toolkit react-redux</li>
 </ul>
 <ol>
 <li>在modules文件夹下创建不同的store切片，每个store有自己的name、initialState和reducers，reducers有管理状态的方法（与actions同名）。从store中解构出actions和reducer并导出</li>
@@ -2787,12 +2867,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li><code>&lt;Provider store=&#123;store&#125;&gt;</code>包裹根节点</li>
 <li>在App.js中用useSelector取出数据，用useDispatch产生dispatch函数，导入actions，需要时调用dispatch（action)</li>
 </ol>
-<h3 id="antd-mobile"><a href="#antd-mobile" class="headerlink" title="antd-mobile"></a>antd-mobile</h3><ul>
-<li>npm install antd-mobile</li>
-<li><a target="_blank" rel="noopener" href="https://mobile.ant.design/zh/">Ant Design Mobile</a></li>
-</ul>
-<h3 id="useReducer"><a href="#useReducer" class="headerlink" title="useReducer"></a>useReducer</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义reducer</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; useReducer &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. 根据不同的action返回不同的新状态</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">reducer</span>(<span class="params">state, action</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;reducer执行了&#x27;</span>)</span><br><span class="line">  <span class="keyword">switch</span> (action.<span class="property">type</span>) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;INC&#x27;</span>:</span><br><span class="line">      <span class="keyword">return</span> state + <span class="number">1</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;DEC&#x27;</span>:</span><br><span class="line">      <span class="keyword">return</span> state - <span class="number">1</span></span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;UPDATE&#x27;</span>:</span><br><span class="line">      <span class="keyword">return</span> state + action.<span class="property">payload</span></span><br><span class="line">    <span class="attr">default</span>:</span><br><span class="line">      <span class="keyword">return</span> state</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">App</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// 2. 使用useReducer分派action</span></span><br><span class="line">  <span class="keyword">const</span> [state, dispatch] = <span class="title function_">useReducer</span>(reducer, <span class="number">0</span>)</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;&gt;</span></span></span><br><span class="line"><span class="language-xml">      &#123;/* 3. 调用dispatch函数传入action对象 触发reducer函数，分派action操作，使用新状态更新视图 */&#125;</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> dispatch(&#123; type: &#x27;DEC&#x27; &#125;)&#125;&gt;-<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      &#123;state&#125;</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> dispatch(&#123; type: &#x27;INC&#x27; &#125;)&#125;&gt;+<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> dispatch(&#123; type: &#x27;UPDATE&#x27;, payload: 100 &#125;)&#125;&gt;</span></span><br><span class="line"><span class="language-xml">        update to 100</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">App</span></span><br></pre></td></tr></table></figure>
-
 <h3 id="useMemo"><a href="#useMemo" class="headerlink" title="useMemo"></a>useMemo</h3><p>使用场景：缓存性能消耗大的计算</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useMemo, useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fib</span> (<span class="params">n</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;计算函数执行了&#x27;</span>)</span><br><span class="line">  <span class="keyword">if</span> (n &lt; <span class="number">3</span>) <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">fib</span>(n - <span class="number">2</span>) + <span class="title function_">fib</span>(n - <span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">App</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> [count, setCount] = <span class="title function_">useState</span>(<span class="number">0</span>)</span><br><span class="line">  <span class="comment">// 计算斐波那契之和</span></span><br><span class="line">  <span class="comment">// const sum = fib(count)</span></span><br><span class="line">  <span class="comment">// 通过useMemo缓存计算结果，只有count发生变化时才重新计算</span></span><br><span class="line">  <span class="keyword">const</span> sum = <span class="title function_">useMemo</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">fib</span>(count)</span><br><span class="line">  &#125;, [count])</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> [num, setNum] = <span class="title function_">useState</span>(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;&gt;</span></span></span><br><span class="line"><span class="language-xml">      &#123;sum&#125;</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> setCount(count + 1)&#125;&gt;+count:&#123;count&#125;<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> setNum(num + 1)&#125;&gt;+num:&#123;num&#125;<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">App</span></span><br></pre></td></tr></table></figure>
 
@@ -2862,10 +2936,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2024-11-14T19:38:25+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2025-04-09T22:50:36+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2024年11月14日</p>
+    <p>本页文档最后更新于：2025年4月9日</p>
   </a>
 </div>
 
@@ -2945,38 +3019,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/2024/09/16/react-jike/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>react-jike</p>
-          <p class='content'>目录结构
-
-
-文件夹
-作用
-
-
-
-apis
-接口
-
-
-assets
-静态资源
-
-
-components
-通用组件
-
-
-pages
-页面级组件
-
-
-router
-路由Router
-
-
-store
-...</p>
+        <a class='prev' href='/2024/09/18/%E3%80%8A%E6%88%91%E4%B8%8E%E5%9C%B0%E5%9D%9B%E3%80%8B%E6%96%87%E6%91%98/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>《我与地坛》文摘</p>
+          <p class='content'>一个人，出生了，这就不再是一个可以辩论的问题，而只是上帝交给他的一个事实；上帝在交给我们这件事实的时候，已经顺便保证了它的结果，所以死是一件不必急于求成的事，死是一个必然会降临的节日。这样想过之...</p>
         </a>
       
       
@@ -3058,7 +3103,7 @@ store
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%A8%E5%9F%9F%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text">跨域代理配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85"><span class="toc-number">2.</span> <span class="toc-text">发布订阅</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fetch"><span class="toc-number">3.</span> <span class="toc-text">fetch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lodash%EF%BC%88%E6%8E%92%E5%BA%8F%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">lodash（排序）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#classNames%EF%BC%88%E9%AB%98%E4%BA%AE%E5%88%87%E6%8D%A2%EF%BC%89"><span class="toc-number">5.</span> <span class="toc-text">classNames（高亮切换）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#uuid"><span class="toc-number">6.</span> <span class="toc-text">uuid</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dayjs"><span class="toc-number">7.</span> <span class="toc-text">dayjs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#useRef"><span class="toc-number">8.</span> <span class="toc-text">useRef</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%A8%E7%BA%A7%E4%BC%A0%E9%80%92%E4%BF%A1%E6%81%AF"><span class="toc-number">9.</span> <span class="toc-text">跨级传递信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#useEffect"><span class="toc-number">10.</span> <span class="toc-text">useEffect</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#json-server"><span class="toc-number">11.</span> <span class="toc-text">json-server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redux"><span class="toc-number">12.</span> <span class="toc-text">Redux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#antd-mobile"><span class="toc-number">13.</span> <span class="toc-text">antd-mobile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#useReducer"><span class="toc-number">14.</span> <span class="toc-text">useReducer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#useMemo"><span class="toc-number">15.</span> <span class="toc-text">useMemo</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#props%E5%8F%98%E5%8C%96%E9%87%8D%E6%96%B0%E6%B8%B2%E6%9F%93"><span class="toc-number"></span> <span class="toc-text">props变化重新渲染</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#useCallback%E7%BC%93%E5%AD%98%E5%87%BD%E6%95%B0"><span class="toc-number"></span> <span class="toc-text">useCallback缓存函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Zustand"><span class="toc-number">1.</span> <span class="toc-text">Zustand</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#store-index-js-%E5%88%9B%E5%BB%BAstore"><span class="toc-number">1.1.</span> <span class="toc-text">store&#x2F;index.js - 创建store</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#app-js-%E7%BB%91%E5%AE%9A%E7%BB%84%E4%BB%B6"><span class="toc-number">1.2.</span> <span class="toc-text">app.js - 绑定组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81"><span class="toc-number">1.3.</span> <span class="toc-text">异步支持</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#store-index-js-%E5%88%9B%E5%BB%BAstore-1"><span class="toc-number">1.4.</span> <span class="toc-text">store&#x2F;index.js - 创建store</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#app-js-%E7%BB%91%E5%AE%9A%E7%BB%84%E4%BB%B6-1"><span class="toc-number">1.5.</span> <span class="toc-text">app.js - 绑定组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%87%E7%89%87%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.6.</span> <span class="toc-text">切片模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8B%86%E5%88%86%E5%B9%B6%E7%BB%84%E5%90%88%E5%88%87%E7%89%87"><span class="toc-number">1.7.</span> <span class="toc-text">拆分并组合切片</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E4%BD%BF%E7%94%A8"><span class="toc-number">1.8.</span> <span class="toc-text">组件使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E6%8E%A5DevTools"><span class="toc-number">1.9.</span> <span class="toc-text">对接DevTools</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E8%B0%83%E8%AF%95%E5%8C%85"><span class="toc-number">1.10.</span> <span class="toc-text">安装调试包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7"><span class="toc-number">1.11.</span> <span class="toc-text">配置调试工具</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">目录结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96"><span class="toc-number">2.</span> <span class="toc-text">安装依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%88%AB%E5%90%8D%E8%B7%AF%E5%BE%84"><span class="toc-number">3.</span> <span class="toc-text">配置别名路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E8%B7%AF%E7%94%B1"><span class="toc-number">4.</span> <span class="toc-text">配置路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2"><span class="toc-number">5.</span> <span class="toc-text">刷新页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85"><span class="toc-number">6.</span> <span class="toc-text">项目打包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD"><span class="toc-number">7.</span> <span class="toc-text">路由懒加载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%85%E4%BD%93%E7%A7%AF%E5%8F%AF%E8%A7%86%E5%8C%96%E5%88%86%E6%9E%90"><span class="toc-number">8.</span> <span class="toc-text">包体积可视化分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CDN%E4%BC%98%E5%8C%96"><span class="toc-number">9.</span> <span class="toc-text">CDN优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%A8%E5%9F%9F%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE"><span class="toc-number">10.</span> <span class="toc-text">跨域代理配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85"><span class="toc-number">11.</span> <span class="toc-text">发布订阅</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fetch"><span class="toc-number">12.</span> <span class="toc-text">fetch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#classNames%EF%BC%88%E9%AB%98%E4%BA%AE%E5%88%87%E6%8D%A2%EF%BC%89"><span class="toc-number">13.</span> <span class="toc-text">classNames（高亮切换）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#uuid"><span class="toc-number">14.</span> <span class="toc-text">uuid</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#useRef"><span class="toc-number">15.</span> <span class="toc-text">useRef</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%A8%E7%BA%A7%E4%BC%A0%E9%80%92%E4%BF%A1%E6%81%AF"><span class="toc-number">16.</span> <span class="toc-text">跨级传递信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#useEffect"><span class="toc-number">17.</span> <span class="toc-text">useEffect</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#json-server"><span class="toc-number">18.</span> <span class="toc-text">json-server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redux"><span class="toc-number">19.</span> <span class="toc-text">Redux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#useMemo"><span class="toc-number">20.</span> <span class="toc-text">useMemo</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#props%E5%8F%98%E5%8C%96%E9%87%8D%E6%96%B0%E6%B8%B2%E6%9F%93"><span class="toc-number"></span> <span class="toc-text">props变化重新渲染</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#useCallback%E7%BC%93%E5%AD%98%E5%87%BD%E6%95%B0"><span class="toc-number"></span> <span class="toc-text">useCallback缓存函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Zustand"><span class="toc-number">1.</span> <span class="toc-text">Zustand</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#store-index-js-%E5%88%9B%E5%BB%BAstore"><span class="toc-number">1.1.</span> <span class="toc-text">store&#x2F;index.js - 创建store</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#app-js-%E7%BB%91%E5%AE%9A%E7%BB%84%E4%BB%B6"><span class="toc-number">1.2.</span> <span class="toc-text">app.js - 绑定组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81"><span class="toc-number">1.3.</span> <span class="toc-text">异步支持</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#store-index-js-%E5%88%9B%E5%BB%BAstore-1"><span class="toc-number">1.4.</span> <span class="toc-text">store&#x2F;index.js - 创建store</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#app-js-%E7%BB%91%E5%AE%9A%E7%BB%84%E4%BB%B6-1"><span class="toc-number">1.5.</span> <span class="toc-text">app.js - 绑定组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%87%E7%89%87%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.6.</span> <span class="toc-text">切片模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8B%86%E5%88%86%E5%B9%B6%E7%BB%84%E5%90%88%E5%88%87%E7%89%87"><span class="toc-number">1.7.</span> <span class="toc-text">拆分并组合切片</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E4%BD%BF%E7%94%A8"><span class="toc-number">1.8.</span> <span class="toc-text">组件使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E6%8E%A5DevTools"><span class="toc-number">1.9.</span> <span class="toc-text">对接DevTools</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E8%B0%83%E8%AF%95%E5%8C%85"><span class="toc-number">1.10.</span> <span class="toc-text">安装调试包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7"><span class="toc-number">1.11.</span> <span class="toc-text">配置调试工具</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -4116,7 +4161,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp"];
   let index = 0;
   let IntervalParallax = null;
 
@@ -4435,7 +4480,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"hzx's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"hzx's blog"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/学习笔记/","name":"学习笔记"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2024/09/16/react/","name":"react"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"hzx's blog","url":"http://example.com/","keywords":null,"description":"","author":{"@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":""},"publisher":{"@type":"Organization","name":"hzx's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"react","description":"","inLanguage":["zh-CN","en","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2024/09/16/react/"},"author":{"@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"hzx's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2024/09/16/react/","wordCount":0,"datePublished":"2024-09-16T02:24:16.000Z","dateModified":"2024-11-14T11:38:25.747Z","articleSection":"学习笔记","keywords":"react","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"hzx's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"hzx's blog"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/学习笔记/","name":"学习笔记"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2024/09/16/react/","name":"react"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"hzx's blog","url":"http://example.com/","keywords":null,"description":"","author":{"@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":""},"publisher":{"@type":"Organization","name":"hzx's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"react","description":"","inLanguage":["zh-CN","en","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2024/09/16/react/"},"author":{"@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"hzx's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2024/09/16/react/","wordCount":0,"datePublished":"2024-09-16T02:24:16.000Z","dateModified":"2025-04-09T14:50:36.117Z","articleSection":"学习笔记","keywords":"react","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

@@ -43,11 +43,11 @@
 <meta property="og:title" content="vue3">
 <meta property="og:url" content="http://example.com/2024/10/02/vue3/index.html">
 <meta property="og:site_name" content="hzx&#39;s blog">
-<meta property="og:description" content="组合式API - reactive和ref函数1. reactive 接受对象类型数据的参数传入并返回一个响应式的对象  1234567891011121314151617&lt;script setup&gt; &#x2F;&#x2F; 导入 import &#123; reactive &#125; from &#x27;vue&#x27; &#x2F;&#x2F; 执行函数 传入参数 变量接收 const state &#x3D; reac">
+<meta property="og:description" content="reactive 对比 ref 都是用来生成响应式数据 不同点 reactive不能处理简单类型的数据 ref参数类型支持更好，但是必须通过.value做访问和修改 ref函数内部的实现依赖于reactive函数    组合式API - 生命周期函数1. API setup() onBeforemount() onMounted() onBeforeUpdate() onUpdated() onB">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2024-10-02T15:00:05.000Z">
-<meta property="article:modified_time" content="2025-03-02T14:57:17.070Z">
+<meta property="article:modified_time" content="2025-04-09T14:56:39.441Z">
 <meta property="article:author" content="huangzhixin">
 <meta property="article:tag" content="vue3">
 <meta name="twitter:card" content="summary">
@@ -1766,7 +1766,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1741189096535),
+    lastupdate: new Date(1744210647475),
     sidebar: {
       for_page: ["weChat","post","guide","webinfo"],
       for_post: ["toc"],
@@ -2699,17 +2699,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <h1 id="组合式API-reactive和ref函数"><a href="#组合式API-reactive和ref函数" class="headerlink" title="组合式API - reactive和ref函数"></a>组合式API - reactive和ref函数</h1><div class="story post-story"><h2 id="1-reactive"><a href="#1-reactive" class="headerlink" title="1. reactive"></a>1. reactive</h2><blockquote>
-<p>接受对象类型数据的参数传入并返回一个响应式的对象</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line"> // 导入</span><br><span class="line"> import &#123; reactive &#125; from &#x27;vue&#x27;</span><br><span class="line"> // 执行函数 传入参数 变量接收</span><br><span class="line"> const state = reactive(&#123;</span><br><span class="line">   msg:&#x27;this is msg&#x27;</span><br><span class="line"> &#125;)</span><br><span class="line"> const setState = ()=&gt;&#123;</span><br><span class="line">   // 修改数据更新视图</span><br><span class="line">   state.msg = &#x27;this is new msg&#x27;</span><br><span class="line"> &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &#123;&#123; state.msg &#125;&#125;</span><br><span class="line">  &lt;button @click=&quot;setState&quot;&gt;change msg&lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
-
-</div><div class="story post-story"><h2 id="2-ref"><a href="#2-ref" class="headerlink" title="2. ref"></a>2. ref</h2><blockquote>
-<p>接收简单类型或者对象类型的数据传入并返回一个响应式的对象</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line"> // 导入</span><br><span class="line"> import &#123; ref &#125; from &#x27;vue&#x27;</span><br><span class="line"> // 执行函数 传入参数 变量接收</span><br><span class="line"> const count = ref(0)</span><br><span class="line"> const setCount = ()=&gt;&#123;</span><br><span class="line">   // 修改数据更新视图必须加上.value</span><br><span class="line">   count.value++</span><br><span class="line"> &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;button @click=&quot;setCount&quot;&gt;&#123;&#123;count&#125;&#125;&lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
-
-</div><div class="story post-story"><h2 id="3-reactive-对比-ref"><a href="#3-reactive-对比-ref" class="headerlink" title="3. reactive 对比 ref"></a>3. reactive 对比 ref</h2><ol>
+    <div class="story post-story"><h2 id="reactive-对比-ref"><a href="#reactive-对比-ref" class="headerlink" title="reactive 对比 ref"></a>reactive 对比 ref</h2><ol>
 <li>都是用来生成响应式数据</li>
 <li>不同点<ol>
 <li>reactive不能处理简单类型的数据</li>
@@ -2718,31 +2708,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </ol>
 </li>
 </ol>
-<h1 id="组合式API-computed"><a href="#组合式API-computed" class="headerlink" title="组合式API - computed"></a>组合式API - computed</h1><blockquote>
-<p>计算属性基本思想和Vue2保持一致，组合式API下的计算属性只是修改了API写法</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">// 导入</span><br><span class="line">import &#123;ref, computed &#125; from &#x27;vue&#x27;</span><br><span class="line">// 原始数据</span><br><span class="line">const count = ref(0)</span><br><span class="line">// 计算属性</span><br><span class="line">const doubleCount = computed(()=&gt;count.value * 2)</span><br><span class="line"></span><br><span class="line">// 原始数据</span><br><span class="line">const list = ref([1,2,3,4,5,6,7,8])</span><br><span class="line">// 计算属性list</span><br><span class="line">const filterList = computed(()=&gt;list.value.filter(item=&gt;item &gt; 2))</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<h1 id="组合式API-watch"><a href="#组合式API-watch" class="headerlink" title="组合式API - watch"></a>组合式API - watch</h1><blockquote>
-<p>侦听一个或者多个数据的变化，数据变化时执行回调函数，俩个额外参数 immediate控制立刻执行，deep开启深度侦听</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">  // 1. 导入watch</span><br><span class="line">  import &#123; ref, watch &#125; from &#x27;vue&#x27;</span><br><span class="line">  const count = ref(0)</span><br><span class="line">  // 2. 调用watch 侦听变化</span><br><span class="line">  watch(count, (newValue, oldValue)=&gt;&#123;</span><br><span class="line">    console.log(`count发生了变化，老值为$&#123;oldValue&#125;,新值为$&#123;newValue&#125;`)</span><br><span class="line">  &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-</div><div class="story post-story"><h2 id="2-侦听多个数据"><a href="#2-侦听多个数据" class="headerlink" title="2. 侦听多个数据"></a>2. 侦听多个数据</h2><blockquote>
-<p>侦听多个数据，第一个参数可以改写成数组的写法</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">  // 1. 导入watch</span><br><span class="line">  import &#123; ref, watch &#125; from &#x27;vue&#x27;</span><br><span class="line">  const count = ref(0)</span><br><span class="line">  const name = ref(&#x27;cp&#x27;)</span><br><span class="line">  // 2. 调用watch 侦听变化</span><br><span class="line">  watch([count, name], ([newCount, newName],[oldCount,oldName])=&gt;&#123;</span><br><span class="line">    console.log(`count或者name变化了，[newCount, newName],[oldCount,oldName])</span><br><span class="line">  &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-</div><div class="story post-story"><h2 id="3-immediate"><a href="#3-immediate" class="headerlink" title="3. immediate"></a>3. immediate</h2><blockquote>
-<p>在侦听器创建时立即出发回调，响应式数据变化之后继续执行回调</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">  // 1. 导入watch</span><br><span class="line">  import &#123; ref, watch &#125; from &#x27;vue&#x27;</span><br><span class="line">  const count = ref(0)</span><br><span class="line">  // 2. 调用watch 侦听变化</span><br><span class="line">  watch(count, (newValue, oldValue)=&gt;&#123;</span><br><span class="line">    console.log(`count发生了变化，老值为$&#123;oldValue&#125;,新值为$&#123;newValue&#125;`)</span><br><span class="line">  &#125;,&#123;</span><br><span class="line">    immediate: true</span><br><span class="line">  &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-</div><div class="story post-story"><h2 id="4-deep"><a href="#4-deep" class="headerlink" title="4. deep"></a>4. deep</h2><blockquote>
-<p>通过watch监听的ref对象默认是浅层侦听的，直接修改嵌套的对象属性不会触发回调执行，需要开启deep</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">  // 1. 导入watch</span><br><span class="line">  import &#123; ref, watch &#125; from &#x27;vue&#x27;</span><br><span class="line">  const state = ref(&#123; count: 0 &#125;)</span><br><span class="line">  // 2. 监听对象state</span><br><span class="line">  watch(state, ()=&gt;&#123;</span><br><span class="line">    console.log(&#x27;数据变化了&#x27;)</span><br><span class="line">  &#125;)</span><br><span class="line">  const changeStateByCount = ()=&gt;&#123;</span><br><span class="line">    // 直接修改不会引发回调执行</span><br><span class="line">    state.value.count++</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">  // 1. 导入watch</span><br><span class="line">  import &#123; ref, watch &#125; from &#x27;vue&#x27;</span><br><span class="line">  const state = ref(&#123; count: 0 &#125;)</span><br><span class="line">  // 2. 监听对象state 并开启deep</span><br><span class="line">  watch(state, ()=&gt;&#123;</span><br><span class="line">    console.log(&#x27;数据变化了&#x27;)</span><br><span class="line">  &#125;,&#123;deep:true&#125;)</span><br><span class="line">  const changeStateByCount = ()=&gt;&#123;</span><br><span class="line">    // 此时修改可以触发回调</span><br><span class="line">    state.value.count++</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
 <h1 id="组合式API-生命周期函数"><a href="#组合式API-生命周期函数" class="headerlink" title="组合式API - 生命周期函数"></a>组合式API - 生命周期函数</h1></div><div class="story post-story"><h2 id="1-API"><a href="#1-API" class="headerlink" title="1. API"></a>1. API</h2><ul>
 <li>setup()</li>
 <li>onBeforemount()</li>
@@ -2752,19 +2717,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>onBeforeUnMount()</li>
 <li>onUnMounted()</li>
 </ul>
-</div><div class="story post-story"><h2 id="2-生命周期函数基本使用"><a href="#2-生命周期函数基本使用" class="headerlink" title="2. 生命周期函数基本使用"></a>2. 生命周期函数基本使用</h2><blockquote>
-<ol>
-<li>导入生命周期函数</li>
-<li>执行生命周期函数，传入回调</li>
-</ol>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;scirpt setup&gt;</span><br><span class="line">import &#123; onMounted &#125; from &#x27;vue&#x27;</span><br><span class="line">onMounted(()=&gt;&#123;</span><br><span class="line">  // 自定义逻辑</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-</div><div class="story post-story"><h2 id="3-执行多次"><a href="#3-执行多次" class="headerlink" title="3. 执行多次"></a>3. 执行多次</h2><blockquote>
-<p>生命周期函数执行多次的时候，会按照顺序依次执行</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;scirpt setup&gt;</span><br><span class="line">import &#123; onMounted &#125; from &#x27;vue&#x27;</span><br><span class="line">onMounted(()=&gt;&#123;</span><br><span class="line">  // 自定义逻辑</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">onMounted(()=&gt;&#123;</span><br><span class="line">  // 自定义逻辑</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
 <h1 id="组合式API-父子通信"><a href="#组合式API-父子通信" class="headerlink" title="组合式API - 父子通信"></a>组合式API - 父子通信</h1></div><div class="story post-story"><h2 id="1-父传子"><a href="#1-父传子" class="headerlink" title="1. 父传子"></a>1. 父传子</h2><blockquote>
 <p>基本思想</p>
 <ol>
@@ -2772,8 +2724,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>子组件内部通过props选项接收数据</li>
 </ol>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//App.vue</span></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">SonCom</span> <span class="attr">message</span>=<span class="string">&quot;this is a message&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">SonCom</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">setup</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="keyword">import</span> <span class="title class_">SonCom</span> <span class="keyword">from</span> <span class="string">&#x27;./SonCom.vue&#x27;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//SonCom.vue</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    &#123;&#123; message &#125;&#125;</span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">setup</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="keyword">const</span> props = <span class="title function_">defineProps</span>(&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="attr">message</span>:<span class="title class_">String</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">&#125;)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-
 </div><div class="story post-story"><h2 id="2-子传父"><a href="#2-子传父" class="headerlink" title="2. 子传父"></a>2. 子传父</h2><blockquote>
 <p>基本思想</p>
 <ol>
@@ -2781,20 +2731,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>子组件内部通过 emit 方法触发事件</li>
 </ol>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//App.vue</span></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">SonCom</span> @<span class="attr">get-message</span>=<span class="string">&quot;messageHandler&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">SonCom</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">setup</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="keyword">import</span> <span class="title class_">SonCom</span> <span class="keyword">from</span> <span class="string">&#x27;./SonCom.vue&#x27;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="keyword">const</span> <span class="title function_">messageHandler</span> = (<span class="params">message</span>)=&gt;&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  <span class="variable language_">console</span>.<span class="title function_">log</span>(message)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">&#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//SonCom.vue</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;sendMsg&quot;</span>&gt;</span>点我发送信息<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">setup</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="keyword">const</span> emit = <span class="title function_">defineEmits</span>([<span class="string">&#x27;get-message&#x27;</span>])</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="keyword">const</span> <span class="title function_">sendMsg</span> = (<span class="params"></span>)=&gt;&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="title function_">emit</span>(<span class="string">&#x27;get-message&#x27;</span>,<span class="string">&quot;this is son message&quot;</span>)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">&#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-<h1 id="组合式API-模版引用"><a href="#组合式API-模版引用" class="headerlink" title="组合式API - 模版引用"></a>组合式API - 模版引用</h1><blockquote>
-<p>概念：通过 ref标识 获取真实的 dom对象或者组件实例对象</p>
-</blockquote>
-</div><div class="story post-story"><h2 id="1-基本使用"><a href="#1-基本使用" class="headerlink" title="1. 基本使用"></a>1. 基本使用</h2><blockquote>
-<p>实现步骤：</p>
-<ol>
-<li>调用ref函数生成一个ref对象</li>
-<li>通过ref标识绑定ref对象到标签</li>
-</ol>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">h1</span> <span class="attr">ref</span>=<span class="string">&quot;h1Ref&quot;</span>&gt;</span>我是dom标签对象h1<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">setup</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="keyword">import</span> &#123; ref &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="keyword">const</span> h1Ref = <span class="title function_">ref</span>(<span class="literal">null</span>)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-
 </div><div class="story post-story"><h2 id="2-defineExpose"><a href="#2-defineExpose" class="headerlink" title="2. defineExpose"></a>2. defineExpose</h2><blockquote>
 <p>默认情况下在 <script setup>语法糖下组件内部的属性和方法是不开放给父组件访问的，可以通过defineExpose编译宏指定哪些属性和方法容许访问<br>说明：指定testMsg属性可以被访问到</p>
 </blockquote>
@@ -2805,65 +2741,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//顶层组件</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">func</span> = (<span class="params"></span>)=&gt;&#123;&#125;</span><br><span class="line"><span class="title function_">provide</span>(<span class="string">&#x27;key&#x27;</span>,func)</span><br><span class="line"><span class="comment">//底层组件</span></span><br><span class="line"><span class="keyword">const</span> func = <span class="title function_">inject</span>(<span class="string">&#x27;key&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
-<h1 id="pinia"><a href="#pinia" class="headerlink" title="pinia"></a>pinia</h1><p>Pinia 是 Vue 的专属状态管理库，可以实现跨组件或页面共享状态，是 vuex 状态管理工具的替代品，</p>
-<p>更加轻量级，支持ts、支持服务端渲染、支持 <code>Vue DevTools</code>。</p>
-<p>移除 <code>mutations</code>，只剩下 <code>state</code> 、 <code>actions</code> 、 <code>getters</code> 。</p>
+<h1 id="pinia"><a href="#pinia" class="headerlink" title="pinia"></a>pinia</h1><p>Pinia 是 Vue 的专属状态管理库，可以实现跨组件或页面共享状态。</p>
 <p>无需手动添加每个 <code>store</code>，模块默认情况下创建就自动注册。</p>
-<h1 id="创建空Vue项目并安装Pinia"><a href="#创建空Vue项目并安装Pinia" class="headerlink" title="创建空Vue项目并安装Pinia"></a>创建空Vue项目并安装Pinia</h1><h3 id="1-创建空Vue项目"><a href="#1-创建空Vue项目" class="headerlink" title="1. 创建空Vue项目"></a>1. 创建空Vue项目</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init vue@latest</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-安装Pinia并注册"><a href="#2-安装Pinia并注册" class="headerlink" title="2. 安装Pinia并注册"></a>2. 安装Pinia并注册</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i pinia</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createPinia &#125; <span class="keyword">from</span> <span class="string">&#x27;pinia&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">createApp</span>(<span class="title class_">App</span>)</span><br><span class="line"><span class="comment">// 以插件的形式注册</span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="title function_">createPinia</span>())</span><br><span class="line">app.<span class="title function_">use</span>(router)</span><br><span class="line">app.<span class="title function_">mount</span>(<span class="string">&#x27;#app&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="实现counter"><a href="#实现counter" class="headerlink" title="实现counter"></a>实现counter</h1><blockquote>
-<p>核心步骤：</p>
-<ol>
-<li>定义store</li>
-<li>组件使用store</li>
-</ol>
-</blockquote>
-<p>1- 定义store</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; defineStore &#125; <span class="keyword">from</span> <span class="string">&#x27;pinia&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; ref &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> useCounterStore = <span class="title function_">defineStore</span>(<span class="string">&#x27;counter&#x27;</span>, <span class="function">()=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">// 数据 （state）</span></span><br><span class="line">  <span class="keyword">const</span> count = <span class="title function_">ref</span>(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 修改数据的方法 （action）</span></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">increment</span> = (<span class="params"></span>)=&gt;&#123;</span><br><span class="line">    count.<span class="property">value</span>++</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 以对象形式返回</span></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    count,</span><br><span class="line">    increment</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>2- 组件使用store</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">  // 1. 导入use方法</span><br><span class="line">	import &#123; useCounterStore &#125; from &#x27;@/stores/counter&#x27;</span><br><span class="line">  // 2. 执行方法得到store store里有数据和方法</span><br><span class="line">  const counterStore = useCounterStore()</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;button @click=&quot;counterStore.increment&quot;&gt;</span><br><span class="line">    &#123;&#123; counterStore.count &#125;&#125;</span><br><span class="line">  &lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="实现getters"><a href="#实现getters" class="headerlink" title="实现getters"></a>实现getters</h1><blockquote>
-<p>getters直接使用计算属性即可实现</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 数据（state）</span></span><br><span class="line"><span class="keyword">const</span> count = <span class="title function_">ref</span>(<span class="number">0</span>)</span><br><span class="line"><span class="comment">// getter (computed)</span></span><br><span class="line"><span class="keyword">const</span> doubleCount = <span class="title function_">computed</span>(<span class="function">() =&gt;</span> count.<span class="property">value</span> * <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="实现actions"><a href="#实现actions" class="headerlink" title="实现actions"></a>实现actions</h1><blockquote>
-<p>思想：action函数既支持同步也支持异步，和在组件中发送网络请求写法保持一致<br>步骤：</p>
-<ol>
-<li>store中定义action</li>
-<li>组件中触发action</li>
-</ol>
-</blockquote>
-<p>1- store中定义action</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="variable constant_">API_URL</span> = <span class="string">&#x27;http://geek.itheima.net/v1_0/channels&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> useCounterStore = <span class="title function_">defineStore</span>(<span class="string">&#x27;counter&#x27;</span>, <span class="function">()=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">// 数据</span></span><br><span class="line">  <span class="keyword">const</span> list = <span class="title function_">ref</span>([])</span><br><span class="line">  <span class="comment">// 异步action</span></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">loadList</span> = <span class="keyword">async</span> (<span class="params"></span>)=&gt;&#123;</span><br><span class="line">    <span class="keyword">const</span> res = <span class="keyword">await</span> axios.<span class="title function_">get</span>(<span class="variable constant_">API_URL</span>)</span><br><span class="line">    list.<span class="property">value</span> = res.<span class="property">data</span>.<span class="property">data</span>.<span class="property">channels</span></span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    list,</span><br><span class="line">    loadList</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>2- 组件中调用action</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">	import &#123; useCounterStore &#125; from &#x27;@/stores/counter&#x27;</span><br><span class="line">  const counterStore = useCounterStore()</span><br><span class="line">  // 调用异步action</span><br><span class="line">  counterStore.loadList()</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;ul&gt;</span><br><span class="line">    &lt;li v-for=&quot;item in counterStore.list&quot; :key=&quot;item.id&quot;&gt;&#123;&#123; item.name &#125;&#125;&lt;/li&gt;</span><br><span class="line">  &lt;/ul&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
-
 <h1 id="storeToRefs保持响应式解构"><a href="#storeToRefs保持响应式解构" class="headerlink" title="storeToRefs保持响应式解构"></a>storeToRefs保持响应式解构</h1><blockquote>
 <p>直接基于store进行解构赋值，响应式数据（state和getter）会丢失响应式特性，使用storeToRefs辅助保持响应式</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">  import &#123; storeToRefs &#125; from &#x27;pinia&#x27;</span><br><span class="line">	import &#123; useCounterStore &#125; from &#x27;@/stores/counter&#x27;</span><br><span class="line">  const counterStore = useCounterStore()</span><br><span class="line">  // 使用它storeToRefs包裹之后解构保持响应式</span><br><span class="line">  const &#123; count &#125; = storeToRefs(counterStore)</span><br><span class="line"></span><br><span class="line">  const &#123; increment &#125; = counterStore</span><br><span class="line">  </span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;button @click=&quot;increment&quot;&gt;</span><br><span class="line">    &#123;&#123; count &#125;&#125;</span><br><span class="line">  &lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-</div><div class="story post-story"><h2 id="Pinia持久化存储"><a href="#Pinia持久化存储" class="headerlink" title="Pinia持久化存储"></a>Pinia持久化存储</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i pinia-plugin-persistedstate</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//main.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; createPinia &#125; <span class="keyword">from</span> <span class="string">&#x27;pinia&#x27;</span></span><br><span class="line"><span class="keyword">import</span> piniaPluginPersistedstate <span class="keyword">from</span> <span class="string">&#x27;pinia-plugin-persistedstate&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> pinia = <span class="title function_">createPinia</span>()</span><br><span class="line">pinia.<span class="title function_">use</span>(piniaPluginPersistedstate)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义store时</span></span><br><span class="line"><span class="keyword">import</span> &#123; defineStore &#125; <span class="keyword">from</span> <span class="string">&#x27;pinia&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> useStore = <span class="title function_">defineStore</span>(</span><br><span class="line">  <span class="string">&#x27;main&#x27;</span>,</span><br><span class="line">  <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> someState = <span class="title function_">ref</span>(<span class="string">&#x27;hello pinia&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> &#123; someState &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">persist</span>: <span class="literal">true</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
 
 
@@ -2874,7 +2757,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </div><div class="story post-story"><h2 id="响应式"><a href="#响应式" class="headerlink" title="响应式"></a>响应式</h2><p>原理就是数据劫持结合发布者-订阅者模式，Vue在初始化数据时，会使用<code>Object.defineProperty</code>重新定义data中的所有属性，劫持各个属性的setter和getter，读取属性时触发getter方法，修改属性时触发setter方法，在方法中记录相应的数据依赖，在数据发生改变时，通知观察者更新视图。Vue3改用<code>Proxy</code>替代Object.defineProperty。Proxy可以直接监听对象和数组的变化，并且有多种拦截方法。</p>
 </div><div class="story post-story"><h2 id="MVVM的理解"><a href="#MVVM的理解" class="headerlink" title="MVVM的理解"></a>MVVM的理解</h2><p><code>MVVM</code>是一种软件架构模式，<code>MVVM</code> 分为 <code>Model</code>、<code>View</code>、<code>ViewModel</code>：</p>
 <ul>
-<li>xxxxxxxxxx import { ElLoading } from 'element-plus'import 'element-plus/theme-chalk/el-loading.css'// 跳转前router.beforeEach((to,from,next)=>{  ElLoading.service({    fullscreen: true,    text: 'Loading...'  })  window.scrollTo(0,0)  next()})// 跳转后router.afterEach((to)=>{  setTimeout(()=>{    const loadingInstance = ElLoading.service()    loadingInstance.close()  },1000)  document.title = to.meta.title || 'my project'})jsx</li>
+<li><code>Model</code>代表数据</li>
 <li><code>View</code>代表UI视图，负责数据的展示；</li>
 <li><code>ViewModel</code>负责监听<code>Model</code>中数据的改变并且控制视图的更新，处理用户交互操作；</li>
 </ul>
@@ -2952,26 +2835,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>服务端渲染</li>
 <li>合理使用 <code>meta</code> 标签</li>
 </ul>
-</div><div class="story post-story"><h2 id="Vue生命周期"><a href="#Vue生命周期" class="headerlink" title="Vue生命周期"></a>Vue生命周期</h2><p><strong>创建前后：</strong></p>
-<ul>
-<li><code>beforeCreate（创建前）：</code> 数据观测和初始化事件还未开始，不能访问<code>data</code>、<code>computed</code>、<code>watch</code>、<code>methods</code>上的数据方法。</li>
-<li><code>created(创建后)：</code>实例创建完成，可以访问<code>data</code>、<code>computed</code>、<code>watch</code>、<code>methods</code>上的数据方法，但此时渲染节点还未挂在到DOM上，所以不能访问。</li>
-</ul>
-<p><strong>挂载前后：</strong></p>
-<ul>
-<li><code>beforeMount（挂载前）:</code> Vue实例还未挂在到页面HTML上，此时可以发起服务器请求</li>
-<li><code>mounted（挂载后）:</code>Vue实例已经挂在完毕，可以操作DOM</li>
-</ul>
-<p><strong>更新前后：</strong></p>
-<ul>
-<li><code>beforeUpdate（更新前）:</code> 数据更新之前调用，还未渲染页面</li>
-<li><code>updated（更新后）:</code>DOM重新渲染，此时数据和界面都是新的。</li>
-</ul>
-<p><strong>销毁前后：</strong></p>
-<ul>
-<li><code>beforeDestorye（销毁前）:</code>实例销毁前调用，这时候能够获取到<code>this</code></li>
-<li><code>destoryed（销毁后）:</code>实例销毁后调用，实例完全被销毁。</li>
-</ul>
 </div><div class="story post-story"><h2 id="常用的属性、指令有哪些"><a href="#常用的属性、指令有哪些" class="headerlink" title="常用的属性、指令有哪些"></a>常用的属性、指令有哪些</h2><p><strong>属性</strong>：</p>
 <ul>
 <li><code>data</code>：用于定义组件的初始数据。</li>
@@ -2994,24 +2857,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </ul>
 </div><div class="story post-story"><h2 id="Computed-和-Watch-的区别"><a href="#Computed-和-Watch-的区别" class="headerlink" title="Computed 和 Watch 的区别"></a>Computed 和 Watch 的区别</h2><p><code>computed</code>计算属性，通过对已有的属性值进行计算得到一个新值。它需要依赖于其他的数据，当数据发生变化时，<code>computed</code>会自动计算更新。<code>computed</code>属性值会被缓存，只有当依赖数据发生变化时才会重新计算，这样可以避免重复计算提高性能。</p>
 <p><code>watch</code>用于监听数据的变化，并在变化时执行一些操作。它可以监听单个数据或者数组，当数据发生变化时会执行对应的回调函数，和<code>computed</code>不同的是<code>watch</code>不会有缓存。</p>
-</div><div class="story post-story"><h2 id="Vue组件通信"><a href="#Vue组件通信" class="headerlink" title="Vue组件通信"></a>Vue组件通信</h2><p>父传子</p>
-<ul>
-<li>props</li>
-<li>$children</li>
-<li>$refs</li>
-</ul>
-<p>子传父</p>
-<ul>
-<li>$emit</li>
-<li>$parent</li>
-</ul>
-<p>兄弟组件</p>
-<ul>
-<li>provied</li>
-<li>inject</li>
-<li>eventBus</li>
-<li>Vuex</li>
-</ul>
 </div><div class="story post-story"><h2 id="常见的事件修饰符及其作用"><a href="#常见的事件修饰符及其作用" class="headerlink" title="常见的事件修饰符及其作用"></a>常见的事件修饰符及其作用</h2><ul>
 <li><code>.stop</code>阻止冒泡</li>
 <li><code>.prevent</code>阻止默认事件</li>
@@ -3097,36 +2942,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </blockquote>
 </div><div class="story post-story"><h2 id="nextTick-原理及作用"><a href="#nextTick-原理及作用" class="headerlink" title="$nextTick 原理及作用"></a>$nextTick 原理及作用</h2><p>Vue 的 <code>nextTick</code> 其本质是对 <code>JavaScript</code> 执行原理 <code>EventLoop</code> 的一种应用。 <code>nextTick</code>是将回调函数放到一个异步队列中，保证在异步更新DOM的<code>watcher</code>后面，从而获取到更新后的DOM。</p>
 <p>因为在<code>created()</code>钩子函数中，页面的DOM还未渲染，这时候也没办法操作DOM，所以，此时如果想要操作DOM，必须将操作的代码放在<code>nextTick()</code>的回调函数中。</p>
-</div><div class="story post-story"><h2 id="Vue模版编译原理"><a href="#Vue模版编译原理" class="headerlink" title="Vue模版编译原理"></a>Vue模版编译原理</h2><p>模版编译主要过程：<code>template ---&gt; ast ---&gt; render</code>，分别对象三个方法</p>
-<ul>
-<li><code>parse</code> 函数解析 <code>template</code></li>
-<li><code>optimize</code> 函数优化静态内容</li>
-<li><code>generate</code> 函数创建 <code>render</code> 函数字符串</li>
-</ul>
-<p>调用<code>parse</code>方法，将<code>template</code>转化为<code>AST</code>（抽象语法树），<code>AST</code>定义了三种类型，一种<code>html</code>标签，一种文本，一种插值表达式，并且通过 <code>children</code> 这个字段层层嵌套形成了树状的结构。</p>
-<p><code>optimize</code>方法对<code>AST</code>树进行静态内容优化，分析出哪些是静态节点，给其打一个标记，为后续更新渲染可以直接跳过静态节点做优化。</p>
-<p><code>generate</code>将<code>AST</code>抽象语法树编译成 <code>render</code>字符串，最后通过<code>new Function(render)</code>生成可执行的<code>render</code>函数</p>
-<h1 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h1></div><div class="story post-story"><h2 id="Vuex-的原理"><a href="#Vuex-的原理" class="headerlink" title="Vuex 的原理"></a>Vuex 的原理</h2><p><code>Vuex</code>是专门为<code>Vue</code>设计的状态管理，当<code>Vue</code>从<code>store</code>中读取数据后，数据发生改变，组件中的数据也会发生变化。 <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/11c6fb9fc9d144259275183cc8fcf9a6~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=701&h=551&e=png&b=ffffff" class="lazyload" data-srcset="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/11c6fb9fc9d144259275183cc8fcf9a6~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=701&h=551&e=png&b=ffffff" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="img"></p>
-<ul>
-<li><code>Vue Components</code> 负责接收用户操作交互行为，执行dispatch触发对应的action进行回应</li>
-<li><code>dispatch</code>唯一能执行action的方法</li>
-<li><code>action</code>用来接收components的交互行为，包含异步同步操作</li>
-<li><code>commit</code>对mutation进行提交，唯一能执行mutation的方法</li>
-<li><code>mutation</code>唯一可以修改state状态的方法</li>
-<li><code>state</code>页面状态管理容器，用于存储状态</li>
-<li><code>getters</code>读取state方法</li>
-</ul>
-<p>Vue组件接收交互行为，调用<code>dispatch</code>方法触发<code>action</code>相关处理，若页面状态需要改变，则调用<code>commit</code>方法提交<code>mutation</code>修改<code>state</code>，通过<code>getters</code>获取到<code>state</code>新值，重新渲染<code>Vue Components</code>，界面随之更新。</p>
-</div><div class="story post-story"><h2 id="Vuex中action和mutation的区别"><a href="#Vuex中action和mutation的区别" class="headerlink" title="Vuex中action和mutation的区别"></a>Vuex中action和mutation的区别</h2><ul>
-<li><code>mutation</code>更专注于修改<code>state</code>，必须是同步执行。</li>
-<li><code>action</code>提交的是<code>mutation</code>，而不是直接更新数据，可以是异步的，如业务代码，异步请求。</li>
-<li><code>action</code>可以包含多个<code>mutation</code></li>
-</ul>
-</div><div class="story post-story"><h2 id="Vuex-和-localStorage-的区别"><a href="#Vuex-和-localStorage-的区别" class="headerlink" title="Vuex 和 localStorage 的区别"></a>Vuex 和 localStorage 的区别</h2><ul>
-<li><code>Vuex</code>存储在内存中，页面关闭刷新就会消失。而<code>localstorage</code>存储在本地，读取内存比读取硬盘速度要快</li>
-<li><code>Vuex</code>应用于组件之间的传值，<code>localstorage</code>主要用于不同页面之间的传递</li>
-<li><code>Vuex</code>是响应式的，<code>localstorage</code>需要刷新</li>
-</ul>
 <h1 id="虚拟DOM"><a href="#虚拟DOM" class="headerlink" title="虚拟DOM"></a>虚拟DOM</h1></div><div class="story post-story"><h2 id="对虚拟DOM的理解"><a href="#对虚拟DOM的理解" class="headerlink" title="对虚拟DOM的理解"></a>对虚拟DOM的理解</h2><p>虚拟DOM就是用JS对象来表述DOM节点，是对真实DOM的一层抽象。可以通过一些列操作使这个棵树映射到真实DOM上。</p>
 <p>如在<code>Vue</code>中，会把代码转换为虚拟DOM，在最终渲染到页面，在每次数据发生变化前，都会缓存一份虚拟DOM，通过<code>diff</code>算法来对比新旧虚拟DOM记录到一个对象中按需更新，最后创建真实DOM，从而提升页面渲染性能。</p>
 </div><div class="story post-story"><h2 id="虚拟DOM就一定比真实DOM更快吗"><a href="#虚拟DOM就一定比真实DOM更快吗" class="headerlink" title="虚拟DOM就一定比真实DOM更快吗"></a>虚拟DOM就一定比真实DOM更快吗</h2><p><strong>虚拟DOM不一定比真实DOM更快，而是在特定情况下可以提供更好的性能。</strong></p>
@@ -3185,10 +3000,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2025-03-02T22:57:17+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2025-04-09T22:56:39+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2025年3月2日</p>
+    <p>本页文档最后更新于：2025年4月9日</p>
   </a>
 </div>
 
@@ -3268,20 +3083,40 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/2024/10/09/2024-10-9/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>2024-10-9</p>
-          <p class='content'>好累好累，每天高强度学习，脑子转不过来了555，明天应该可以把vue3项目做完吧
-
-
-
-</p>
+        <a class='prev' href='/2024/10/11/linux/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>linux</p>
+          <p class='content'>linux常用命令处理目录的常用命令
+ls（英文全拼：list files）: 列出目录及文件名
+cd（英文全拼：change directory）：切换目录
+pwd（英文全拼：print wo...</p>
         </a>
       
       
         <a class='next' href='/2024/10/01/vue3-rabbit%E5%B0%8F%E5%85%94%E9%B2%9C%E7%94%B5%E5%95%86%E9%A1%B9%E7%9B%AE/'>
           <p class='title'>vue3-rabbit小兔鲜电商项目<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>技术栈vue3+JavaScript+vue-router+pinia+element-plus+axios+echarts+vueuse
-创建项目并整理目录1npm init vue@late...</p>
+          <p class='content'>创建项目并整理目录1npm init vue@latest
+
+目录结构
+
+
+文件夹
+作用
+
+
+
+apis
+接口
+
+
+assets
+静态资源
+
+
+components
+通用组件
+
+
+composa...</p>
         </a>
       
     </div>
@@ -3339,7 +3174,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-reactive"><span class="toc-number">1.</span> <span class="toc-text">1. reactive</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-ref"><span class="toc-number">2.</span> <span class="toc-text">2. ref</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-reactive-%E5%AF%B9%E6%AF%94-ref"><span class="toc-number">3.</span> <span class="toc-text">3. reactive 对比 ref</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%BE%A6%E5%90%AC%E5%A4%9A%E4%B8%AA%E6%95%B0%E6%8D%AE"><span class="toc-number">4.</span> <span class="toc-text">2. 侦听多个数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-immediate"><span class="toc-number">5.</span> <span class="toc-text">3. immediate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-deep"><span class="toc-number">6.</span> <span class="toc-text">4. deep</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-API"><span class="toc-number">7.</span> <span class="toc-text">1. API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">8.</span> <span class="toc-text">2. 生命周期函数基本使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%89%A7%E8%A1%8C%E5%A4%9A%E6%AC%A1"><span class="toc-number">9.</span> <span class="toc-text">3. 执行多次</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%88%B6%E4%BC%A0%E5%AD%90"><span class="toc-number">10.</span> <span class="toc-text">1. 父传子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AD%90%E4%BC%A0%E7%88%B6"><span class="toc-number">11.</span> <span class="toc-text">2. 子传父</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">12.</span> <span class="toc-text">1. 基本使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-defineExpose"><span class="toc-number">13.</span> <span class="toc-text">2. defineExpose</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#reactive-%E5%AF%B9%E6%AF%94-ref"><span class="toc-number">1.</span> <span class="toc-text">reactive 对比 ref</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-API"><span class="toc-number">2.</span> <span class="toc-text">1. API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%88%B6%E4%BC%A0%E5%AD%90"><span class="toc-number">3.</span> <span class="toc-text">1. 父传子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AD%90%E4%BC%A0%E7%88%B6"><span class="toc-number">4.</span> <span class="toc-text">2. 子传父</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-defineExpose"><span class="toc-number">5.</span> <span class="toc-text">2. defineExpose</span></a></li></ol>
     </div>
   </section>
 
@@ -4397,7 +4232,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp"];
   let index = 0;
   let IntervalParallax = null;
 
@@ -4716,7 +4551,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"hzx's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"hzx's blog"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/学习笔记/","name":"学习笔记"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2024/10/02/vue3/","name":"vue3"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"hzx's blog","url":"http://example.com/","keywords":null,"description":"","author":{"@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":""},"publisher":{"@type":"Organization","name":"hzx's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"vue3","description":"","inLanguage":["zh-CN","en","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2024/10/02/vue3/"},"author":{"@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"hzx's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2024/10/02/vue3/","wordCount":0,"datePublished":"2024-10-02T15:00:05.000Z","dateModified":"2025-03-02T14:57:17.070Z","articleSection":"学习笔记","keywords":"vue3","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"hzx's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"hzx's blog"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/学习笔记/","name":"学习笔记"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2024/10/02/vue3/","name":"vue3"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"hzx's blog","url":"http://example.com/","keywords":null,"description":"","author":{"@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":""},"publisher":{"@type":"Organization","name":"hzx's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"vue3","description":"","inLanguage":["zh-CN","en","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2024/10/02/vue3/"},"author":{"@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"hzx's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2024/10/02/vue3/","wordCount":0,"datePublished":"2024-10-02T15:00:05.000Z","dateModified":"2025-04-09T14:56:39.441Z","articleSection":"学习笔记","keywords":"vue3","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
