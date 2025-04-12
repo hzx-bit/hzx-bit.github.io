@@ -43,11 +43,11 @@
 <meta property="og:title" content="vue3">
 <meta property="og:url" content="http://example.com/2024/10/02/vue3/index.html">
 <meta property="og:site_name" content="hzx&#39;s blog">
-<meta property="og:description" content="reactive 对比 ref 都是用来生成响应式数据 不同点 reactive不能处理简单类型的数据 ref参数类型支持更好，但是必须通过.value做访问和修改 ref函数内部的实现依赖于reactive函数    组合式API - 生命周期函数1. API setup() onBeforemount() onMounted() onBeforeUpdate() onUpdated() onB">
+<meta property="og:description" content="reactive 对比 ref 都是用来生成响应式数据 不同点 reactive不能处理简单类型的数据 ref参数类型支持更好，但是必须通过.value做访问和修改 ref函数内部的实现依赖于reactive函数    组合式API - 父子通信1. 父传子 基本思想  父组件中给子组件绑定属性 子组件内部通过props选项接收数据   2. 子传父  父组件中给子组件标签通过@绑定事件 子组件内">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2024-10-02T15:00:05.000Z">
-<meta property="article:modified_time" content="2025-04-09T14:56:39.441Z">
+<meta property="article:modified_time" content="2025-04-12T15:25:37.625Z">
 <meta property="article:author" content="huangzhixin">
 <meta property="article:tag" content="vue3">
 <meta name="twitter:card" content="summary">
@@ -1766,7 +1766,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1744210647475),
+    lastupdate: new Date(1744472291941),
     sidebar: {
       for_page: ["weChat","post","guide","webinfo"],
       for_post: ["toc"],
@@ -2708,15 +2708,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </ol>
 </li>
 </ol>
-<h1 id="组合式API-生命周期函数"><a href="#组合式API-生命周期函数" class="headerlink" title="组合式API - 生命周期函数"></a>组合式API - 生命周期函数</h1></div><div class="story post-story"><h2 id="1-API"><a href="#1-API" class="headerlink" title="1. API"></a>1. API</h2><ul>
-<li>setup()</li>
-<li>onBeforemount()</li>
-<li>onMounted()</li>
-<li>onBeforeUpdate()</li>
-<li>onUpdated()</li>
-<li>onBeforeUnMount()</li>
-<li>onUnMounted()</li>
-</ul>
 <h1 id="组合式API-父子通信"><a href="#组合式API-父子通信" class="headerlink" title="组合式API - 父子通信"></a>组合式API - 父子通信</h1></div><div class="story post-story"><h2 id="1-父传子"><a href="#1-父传子" class="headerlink" title="1. 父传子"></a>1. 父传子</h2><blockquote>
 <p>基本思想</p>
 <ol>
@@ -2725,7 +2716,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </ol>
 </blockquote>
 </div><div class="story post-story"><h2 id="2-子传父"><a href="#2-子传父" class="headerlink" title="2. 子传父"></a>2. 子传父</h2><blockquote>
-<p>基本思想</p>
 <ol>
 <li>父组件中给子组件标签通过@绑定事件</li>
 <li>子组件内部通过 emit 方法触发事件</li>
@@ -2754,227 +2744,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 </div><div class="story post-story"><h2 id="插件注册"><a href="#插件注册" class="headerlink" title="插件注册"></a>插件注册</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 引入全局组件插件</span><br><span class="line">import &#123; componentPlugin &#125; from &#x27;@/components&#x27;</span><br><span class="line"></span><br><span class="line">app.use(componentPlugin)</span><br></pre></td></tr></table></figure>
 
-</div><div class="story post-story"><h2 id="响应式"><a href="#响应式" class="headerlink" title="响应式"></a>响应式</h2><p>原理就是数据劫持结合发布者-订阅者模式，Vue在初始化数据时，会使用<code>Object.defineProperty</code>重新定义data中的所有属性，劫持各个属性的setter和getter，读取属性时触发getter方法，修改属性时触发setter方法，在方法中记录相应的数据依赖，在数据发生改变时，通知观察者更新视图。Vue3改用<code>Proxy</code>替代Object.defineProperty。Proxy可以直接监听对象和数组的变化，并且有多种拦截方法。</p>
-</div><div class="story post-story"><h2 id="MVVM的理解"><a href="#MVVM的理解" class="headerlink" title="MVVM的理解"></a>MVVM的理解</h2><p><code>MVVM</code>是一种软件架构模式，<code>MVVM</code> 分为 <code>Model</code>、<code>View</code>、<code>ViewModel</code>：</p>
-<ul>
-<li><code>Model</code>代表数据</li>
-<li><code>View</code>代表UI视图，负责数据的展示；</li>
-<li><code>ViewModel</code>负责监听<code>Model</code>中数据的改变并且控制视图的更新，处理用户交互操作；</li>
-</ul>
-</div><div class="story post-story"><h2 id="vue和react的区别，有什么相同"><a href="#vue和react的区别，有什么相同" class="headerlink" title="vue和react的区别，有什么相同"></a>vue和react的区别，有什么相同</h2><p><strong>不同：</strong></p>
-<ul>
-<li>模版语法不同，<code>react</code>采用JSX语法，<code>vue</code>使用基于HTML的模版语法</li>
-<li>数据绑定不同，<code>vue</code> 使用双向数据绑定，<code>react</code> 则需要手动控制组件的状态和属性。</li>
-<li>状态管理不同，<code>vue</code>使用<code>vuex</code>状态管理，<code>react</code>使用<code>redux</code>状态管理</li>
-<li>组件通信不同，<code>vue</code>使用<code>props</code>和事件的方式进行父子组件通信，<code>react</code>则通过<code>props</code>和回调函数的方式进行通信。</li>
-<li>生命周期不同，<code>vue</code>有8个生命周期钩子，<code>react</code>有10个</li>
-<li>响应式原理不同，<code>vue</code>使用双向绑定来实现数据更新，<code>react</code>则通过单向数据流来实现</li>
-</ul>
-<p><strong>相同</strong>：</p>
-<ul>
-<li><strong>组件化开发</strong>：<code>Vue</code> 和 <code>React</code> 都采用了组件化开发的方式，将用户界面划分为独立、可复用的组件，从而使代码更加模块化、可维护和可扩展。</li>
-<li><strong>虚拟 DOM</strong>：<code>Vue</code> 和 <code>React</code> 都使用虚拟 DOM 技术，通过在 <code>JavaScript</code> 和真实 DOM 之间建立一个轻量级的虚拟 DOM 层，实现高效的 DOM 更新和渲染。</li>
-<li><strong>响应式更新</strong>：<code>Vue</code> 和 <code>React</code> 都支持响应式更新，即当数据发生变化时，会自动更新相关的组件和视图，以保持用户界面的同步性。</li>
-<li><strong>集成能力</strong>：<code>Vue</code> 和 <code>React</code> 都具有良好的集成能力，可以与其他库和框架进行整合，例如 <code>Vue</code> 可以与 <code>Vuex</code>、<code>Vue Router</code> 等配套使用，<code>React</code> 可以与 <code>Redux</code>、<code>React Router</code> 等配套使用。</li>
-</ul>
-</div><div class="story post-story"><h2 id="Vue2和Vue3有哪些区别"><a href="#Vue2和Vue3有哪些区别" class="headerlink" title="Vue2和Vue3有哪些区别"></a>Vue2和Vue3有哪些区别</h2><ul>
-<li><code>Vue2</code>使用的是<code>optionsAPI </code>，<code>Vue3</code>使用<code>composition API</code>，更好的组织代码，提高代码可维护性</li>
-<li><code>Vue3</code>使用<code>Proxy</code>代理实现了新的响应式系统，比<code>Vue2</code>有着更好的性能和更准确的数据变化追踪能力。</li>
-<li><code>Vue3</code>引入了Teleport组件，可以将DOM元素渲染到DOM数的其他位置，用于创建模态框、弹出框等。</li>
-<li><code>Vue3</code>全局API名称发生了变化，同时新增了<code>watchEffect</code>、<code>Hooks</code>等功能</li>
-<li><code>Vue3</code>对<code>TypeScript</code>的支持更加友好</li>
-<li><code>Vue3</code>核心库的依赖更少，减少打包体积</li>
-<li>3支持更好的<code>Tree Shanking</code>，可以更加精确的按需要引入模块</li>
-</ul>
-</div><div class="story post-story"><h2 id="SPA的理解，有什么优缺点"><a href="#SPA的理解，有什么优缺点" class="headerlink" title="SPA的理解，有什么优缺点"></a>SPA的理解，有什么优缺点</h2><p>SPA（单页应用）是一种前端应用程序的架构模式，它通过在加载应用程序时只加载单个 <code>HTML</code> 页面，并通过使用 <code>JavaScript</code> 动态地更新页面内容，从而实现无刷新的用户体验。</p>
-</div><div class="story post-story"><h2 id="SPA和多页面有什么区别"><a href="#SPA和多页面有什么区别" class="headerlink" title="SPA和多页面有什么区别"></a>SPA和多页面有什么区别</h2><p><strong>区别</strong></p>
-<ul>
-<li><strong>页面加载方式</strong>：在多页面应用中，每个页面都是独立的 HTML 文件，每次导航时需要重新加载整个页面。而在 <code>SPA</code> 中，初始加载时只加载一个 HTML 页面，后续的导航通过 <code>JavaScript</code> 动态地更新页面内容，无需重新加载整个页面。</li>
-<li><strong>用户体验</strong>：<code>SPA</code> 提供了流畅、快速的用户体验，因为页面切换时无需等待整个页面的重新加载，只有需要的数据和资源会被加载，减少了页面刷新的延迟。多页面应用则可能会有页面刷新的延迟，给用户带来较长的等待时间。</li>
-<li><strong>代码复用</strong>：<code>SPA</code> 通常采用组件化开发的方式，可以在不同的页面中复用组件，提高代码的可维护性和可扩展性。多页面应用的每个页面都是独立的，组件复用的机会较少。</li>
-<li><strong>路由管理</strong>：在多页面应用中，页面之间的导航和路由由服务器处理，每个页面对应一个不同的 <code>URL</code>。而在 <code>SPA</code> 中，前端负责管理页面的导航和路由，通过前端路由库（如 <code>React Router</code> 或 <code>Vue Router</code>）来管理不同路径对应的组件。</li>
-<li><strong>SEO（搜索引擎优化）</strong>：由于多页面应用的每个页面都是独立的 HTML 文件，搜索引擎可以直接索引和抓取每个页面的内容，有利于搜索引擎优化。相比之下，<code>SPA</code> 的内容是通过 <code>JavaScript</code> 动态生成的，搜索引擎的爬虫可能无法正确地获取和索引页面的内容，需要采取额外的优化措施。</li>
-<li>服务器负载：<code>SPA</code> 只需初始加载时获取 <code>HTML</code>、<code>CSS</code> 和 <code>JavaScript</code> 文件，后续的页面更新和数据获取通常通过 API 请求完成，减轻了服务器的负载。而多页面应用每次导航都需要从服务器获取整个页面的内容。</li>
-</ul>
-<p><strong>优点</strong></p>
-<ul>
-<li><strong>用户体验</strong>：<code>SPA</code> 提供了流畅、快速的用户体验，在页面加载后，只有需要的数据和资源会被加载，减少了页面刷新的延迟。</li>
-<li><strong>响应式交互</strong>：由于 <code>SPA</code> 依赖于异步数据加载和前端路由，可以实现实时更新和动态加载内容，使用户可以快速地与应用程序交互。</li>
-<li><strong>代码复用</strong>：<code>SPA</code> 通常采用组件化开发的方式，提高了代码的可维护性和可扩展性。</li>
-<li><strong>服务器负载较低</strong>：由于只有初始页面加载时需要从服务器获取 <code>HTML</code>、<code>CSS</code> 和 <code>JavaScript</code> 文件，减轻了服务器的负载。</li>
-</ul>
-<p><strong>缺点</strong>：</p>
-<ul>
-<li><strong>首次加载时间</strong>：<code>SPA</code> 首次加载时需要下载较大的 <code>JavaScript</code> 文件，这可能导致初始加载时间较长。</li>
-<li><strong>SEO（搜索引擎优化）问题</strong>：由于 <code>SPA</code> 的内容是通过 <code>JavaScript</code> 动态生成的，搜索引擎的爬虫可能无法正确地获取和索引页面的内容。</li>
-<li><strong>内存占用</strong>：<code>SPA</code> 在用户浏览应用程序时保持单个页面的状态，这可能导致较高的内存占用。</li>
-<li><strong>安全性</strong>：由于 <code>SPA</code> 通常使用 <code>API</code> 进行数据获取，因此需要特别注意安全性。</li>
-</ul>
-</div><div class="story post-story"><h2 id="Vue的性能优化有哪些"><a href="#Vue的性能优化有哪些" class="headerlink" title="Vue的性能优化有哪些"></a>Vue的性能优化有哪些</h2><h3 id="编码阶段"><a href="#编码阶段" class="headerlink" title="编码阶段"></a>编码阶段</h3><ul>
-<li><code>v-if</code>和<code>v-for</code>不一起使用</li>
-<li><code>v-for</code>保证<code>key</code>的唯一性</li>
-<li>使用<code>keep-alive</code>缓存组件</li>
-<li><code>v-if</code>和<code>v-show</code>酌情使用</li>
-<li>路由懒加载、异步组件</li>
-<li>图片懒加载</li>
-<li>节流防抖</li>
-<li>第三方模块按需引入</li>
-<li>服务端与渲染</li>
-</ul>
-<h3 id="打包优化"><a href="#打包优化" class="headerlink" title="打包优化"></a>打包优化</h3><ul>
-<li>压缩代码</li>
-<li>使用CDN加载第三方模块</li>
-<li>抽离公共文件</li>
-</ul>
-<h3 id="用户体验"><a href="#用户体验" class="headerlink" title="用户体验"></a>用户体验</h3><ul>
-<li>骨架屏</li>
-<li>客户端缓存</li>
-</ul>
-<h3 id="SEO优化"><a href="#SEO优化" class="headerlink" title="SEO优化"></a>SEO优化</h3><ul>
-<li>预渲染</li>
-<li>服务端渲染</li>
-<li>合理使用 <code>meta</code> 标签</li>
-</ul>
-</div><div class="story post-story"><h2 id="常用的属性、指令有哪些"><a href="#常用的属性、指令有哪些" class="headerlink" title="常用的属性、指令有哪些"></a>常用的属性、指令有哪些</h2><p><strong>属性</strong>：</p>
-<ul>
-<li><code>data</code>：用于定义组件的初始数据。</li>
-<li><code>props</code>：用于传递数据给子组件。</li>
-<li><code>computed</code>：用于定义计算属性。</li>
-<li><code>methods</code>：用于定义组件的方法。</li>
-<li><code>watch</code>：用于监听组件的数据变化。</li>
-<li><code>components</code>：用于注册子组件。可以通过 <code>components</code> 属性将其他组件注册为当前组件的子组件，从而在模板中使用这些子组件。</li>
-</ul>
-<p><strong>指令</strong>：</p>
-<ul>
-<li><code>v-if</code>：条件渲染指令，根据表达式的真假来决定是否渲染元素。</li>
-<li><code>v-show</code>：条件显示指令，根据表达式的真假来决定元素的显示和隐藏。</li>
-<li><code>v-for</code>：列表渲染指令，用于根据数据源循环渲染元素列表。</li>
-<li><code>v-bind</code>：属性绑定指令，用于动态绑定元素属性到 <code>Vue</code> 实例的数据。</li>
-<li><code>v-on</code>：事件绑定指令，用于监听 <code>DOM</code> 事件，并执行对应的 <code>Vue</code> 方法。</li>
-<li><code>v-model</code>：双向数据绑定指令，用于在表单元素和 <code>Vue</code> 实例的数据之间建立双向绑定关系。</li>
-<li><code>v-text</code>：文本插值指令，用于将数据插入到元素的文本内容中。</li>
-<li><code>v-html</code>：<code>HTML</code> 插值指令，用于将数据作为 <code>HTML</code> 解析并插入到元素中。</li>
-</ul>
-</div><div class="story post-story"><h2 id="Computed-和-Watch-的区别"><a href="#Computed-和-Watch-的区别" class="headerlink" title="Computed 和 Watch 的区别"></a>Computed 和 Watch 的区别</h2><p><code>computed</code>计算属性，通过对已有的属性值进行计算得到一个新值。它需要依赖于其他的数据，当数据发生变化时，<code>computed</code>会自动计算更新。<code>computed</code>属性值会被缓存，只有当依赖数据发生变化时才会重新计算，这样可以避免重复计算提高性能。</p>
-<p><code>watch</code>用于监听数据的变化，并在变化时执行一些操作。它可以监听单个数据或者数组，当数据发生变化时会执行对应的回调函数，和<code>computed</code>不同的是<code>watch</code>不会有缓存。</p>
-</div><div class="story post-story"><h2 id="常见的事件修饰符及其作用"><a href="#常见的事件修饰符及其作用" class="headerlink" title="常见的事件修饰符及其作用"></a>常见的事件修饰符及其作用</h2><ul>
-<li><code>.stop</code>阻止冒泡</li>
-<li><code>.prevent</code>阻止默认事件</li>
-<li><code>.capture</code> ：与事件冒泡的方向相反，事件捕获由外到内；</li>
-<li>.<code>self</code> ：只会触发自己范围内的事件，不包含子元素；</li>
-<li><code>.once</code>：只会触发一次。</li>
-</ul>
-</div><div class="story post-story"><h2 id="v-if和v-show的区别"><a href="#v-if和v-show的区别" class="headerlink" title="v-if和v-show的区别"></a>v-if和v-show的区别</h2><p><code>v-if</code>元素不可见，直接删除DOM，有更高的切换消耗。 <code>v-show</code>通过设置元素<code>display: none</code>控制显示隐藏，更高的初始渲染消耗。</p>
-</div><div class="story post-story"><h2 id="v-html-的原理"><a href="#v-html-的原理" class="headerlink" title="v-html 的原理"></a>v-html 的原理</h2><p>会先移除节点下的所有节点，调用<code>html</code>方法，通过<code>addProp</code>添加<code>innerHTML</code>属性，归根结底还是设置<code>innerHTML</code>为<code>v-html</code>的值。</p>
-</div><div class="story post-story"><h2 id="v-model-是如何实现的，语法糖实际是什么？"><a href="#v-model-是如何实现的，语法糖实际是什么？" class="headerlink" title="v-model 是如何实现的，语法糖实际是什么？"></a>v-model 是如何实现的，语法糖实际是什么？</h2><p>Vue 中数据双向绑定是一个指令<code>v-model</code>，可以绑定一个响应式数据到视图，同时视图的变化能改变该值。</p>
-<ul>
-<li><strong>当作用在表单上</strong>：通过<code>v-bind:value</code>绑定数据，<code>v-on:input</code>来监听数据变化并修改<code>value</code></li>
-<li><strong>当作用在组件上</strong>：本质上是一个父子通信语法糖，通过<code>props</code>和<code>$emit</code>实现。</li>
-</ul>
-</div><div class="story post-story"><h2 id="data为什么是一个函数而不是对象"><a href="#data为什么是一个函数而不是对象" class="headerlink" title="data为什么是一个函数而不是对象"></a>data为什么是一个函数而不是对象</h2><p>因为对象是一个引用类型，如果<code>data</code>是一个对象的情况下会造成多个组件共用一个<code>data</code>，<code>data</code>为一个函数，每个组件都会有自己的私有数据空间，不会干扰其他组件的运行。</p>
-</div><div class="story post-story"><h2 id="mixin-和-mixins-区别"><a href="#mixin-和-mixins-区别" class="headerlink" title="mixin 和 mixins 区别"></a>mixin 和 mixins 区别</h2><ul>
-<li><code>mixin</code> 用于全局混入，会影响到每个组件实例，通常插件都是这样做初始化的。</li>
-<li><code>mixins</code> 应该是最常使用的扩展组件的方式了。如果多个组件中有相同的业务逻辑，就可以将这些逻辑剥离出来，通过 <code>mixins</code> 混入代码，比如上拉下拉加载数据这种逻辑等等。</li>
-</ul>
-</div><div class="story post-story"><h2 id="路由的hash和history模式的区别"><a href="#路由的hash和history模式的区别" class="headerlink" title="路由的hash和history模式的区别"></a>路由的hash和history模式的区别</h2><p><strong>hash模式</strong> 开发中默认的模式，地址栏URL后携带<code>#</code>，后面为路由。 原理是通过<code>onhashchange()</code>事件监听<code>hash</code>值变化，在页面<code>hash</code>值发生变化后，<code>window</code>就可以监听到事件改变，并按照规则加载相应的代码。<code>hash</code>值变化对应的URL都会被记录下来，这样就能实现浏览器历史页面前进后退。</p>
-<p><strong>history模式</strong> <code>history</code>模式中URL没有<code>#</code>，这样相对<code>hash</code>模式更好看，但是需要后台配置支持。</p>
-<p><code>history</code>原理是使用<code>HTML5 history</code>提供的<code>pushState</code>、<code>replaceState</code>两个API，用于浏览器记录历史浏览栈，并且在修改URL时不会触发页面刷新和后台数据请求。</p>
-</div><div class="story post-story"><h2 id="router和route的区别"><a href="#router和route的区别" class="headerlink" title="router和route的区别"></a>router和route的区别</h2><ul>
-<li><code>$route</code> 是路由信息，包括<code>path</code>、<code>params</code>、<code>query</code>、<code>name</code>等路由信息参数</li>
-<li><code>$router</code> 是路由实例，包含了路由跳转方法、钩子函数等</li>
-</ul>
-</div><div class="story post-story"><h2 id="如何设置动态路由"><a href="#如何设置动态路由" class="headerlink" title="如何设置动态路由"></a>如何设置动态路由</h2><ul>
-<li>params传参<ul>
-<li>路由配置： <code>/index/:id</code></li>
-<li>路由跳转：<code>this.$router.push(&#123;name: &#39;index&#39;, params: &#123;id: &quot;zs&quot;&#125;&#125;);</code></li>
-<li>路由参数获取：<code>$route.params.id</code></li>
-<li>最后形成的路由：<code>/index/zs</code></li>
-</ul>
-</li>
-<li>query传参<ul>
-<li>路由配置：<code>/index</code>正常的路由配置</li>
-<li>路由跳转：<code>this.$rouetr.push(&#123;path: &#39;index&#39;, query:&#123;id: &quot;zs&quot;&#125;&#125;);</code></li>
-<li>路由参数获取：<code>$route.query.id</code></li>
-<li>最后形成的路由：<code>/index?id=zs</code></li>
-</ul>
-</li>
-</ul>
-<p><strong>区别</strong></p>
-<ul>
-<li>获取参数方式不一样，一个通过<code>$route.params</code>，一个通过 <code>$route.query</code></li>
-<li>参数的生命周期不一样，<code>query</code>参数在URL地址栏中显示不容易丢失，<code>params</code>参数不会在地址栏显示，刷新后会消失</li>
-</ul>
-</div><div class="story post-story"><h2 id="路由守卫"><a href="#路由守卫" class="headerlink" title="路由守卫"></a>路由守卫</h2><ul>
-<li>全局前置钩子：<code>beforeEach</code>、<code>beforeResolve</code>、<code>afterEach</code></li>
-<li>路由独享守卫：<code>beforeEnter</code></li>
-<li>组件内钩子：<code>beforeRouterEnter</code>、<code>beforeRouterUpdate</code>、<code>beforeRouterLeave</code></li>
-</ul>
-</div><div class="story post-story"><h2 id="Vue中key的作用"><a href="#Vue中key的作用" class="headerlink" title="Vue中key的作用"></a>Vue中key的作用</h2><p><code>key</code>的作用主要是为了高效的更新虚拟DOM，其原理是<code>vue</code>在<code>patch</code>过程中通过<code>key</code>可以精准判断两个节点是否是同一个，从而避免频繁更新不同元素，减少<code>DOM</code>操作量，提高性能。</p>
-</div><div class="story post-story"><h2 id="为什么不建议用index作为key"><a href="#为什么不建议用index作为key" class="headerlink" title="为什么不建议用index作为key?"></a>为什么不建议用index作为key?</h2><p>如果将数组下标作为<code>key</code>值，那么当列表发生变化时，可能会导致<code>key</code>值发生改变，从而引发不必要的组件重新渲染，甚至会导致性能问题。例如，当删除列表中某个元素时，其后面的所有元素的下标都会发生改变，导致<code>Vue</code>重新渲染整个列表。</p>
-</div><div class="story post-story"><h2 id="为什么v-for和v-if不能一起使用"><a href="#为什么v-for和v-if不能一起使用" class="headerlink" title="为什么v-for和v-if不能一起使用"></a>为什么v-for和v-if不能一起使用</h2><p><code>v-for</code>比<code>v-if</code>优先级更高，一起使用的话每次渲染列表时都要执行一次条件判断，造成不必要的计算，影响性能。</p>
-<h1 id="原理知识"><a href="#原理知识" class="headerlink" title="原理知识"></a>原理知识</h1></div><div class="story post-story"><h2 id="双向数据绑定的原理"><a href="#双向数据绑定的原理" class="headerlink" title="双向数据绑定的原理"></a>双向数据绑定的原理</h2><p>采用<strong>数据劫持</strong>结合<strong>发布者-订阅者模式</strong>的方式，<code>data</code>数据在初始化的时候，会实例化一个<code>Observe</code>类，在它会将<code>data</code>数据进行递归遍历，并通过<code>Object.defineProperty</code>方法，给每个值添加上一个<code>getter</code>和一个<code>setter</code>。在数据读取的时候会触发<code>getter</code>进行依赖（Watcher）收集，当数据改变时，会触发<code>setter</code>，对刚刚收集的依赖进行触发，并且更新<code>watcher</code>通知视图进行渲染。</p>
-</div><div class="story post-story"><h2 id="使用-Object-defineProperty-来进行数据劫持有什么缺点？"><a href="#使用-Object-defineProperty-来进行数据劫持有什么缺点？" class="headerlink" title="使用 Object.defineProperty() 来进行数据劫持有什么缺点？"></a>使用 Object.defineProperty() 来进行数据劫持有什么缺点？</h2><p>该方法只能监听到数据的修改，监听不到数据的新增和删除，从而不能触发组件更新渲染。vue2中会对数组的新增删除方法<code>push、pop、shift、unshift、splice、sort、reserve</code>通过重写的形式，在拦截里面进行手动收集触发依赖更新。</p>
-</div><div class="story post-story"><h2 id="和Vue3相比有什么区别？"><a href="#和Vue3相比有什么区别？" class="headerlink" title="和Vue3相比有什么区别？"></a>和Vue3相比有什么区别？</h2><p><code>Vue3</code>采用了<code>Proxy</code>代理的方式，<code>Proxy</code>是ES6引入的一个新特性，它提供了一个用于创建代理对象的构造函数。它是对整个对象的监听和拦截，可以对对象所有操作进行处理。而<code>Object.defineProperty</code>只能监听单个属性的读写，无法监听新增、删除等操作。</p>
-</div><div class="story post-story"><h2 id="Vue是如何收集依赖的？"><a href="#Vue是如何收集依赖的？" class="headerlink" title="Vue是如何收集依赖的？"></a>Vue是如何收集依赖的？</h2><p>依赖收集发生在<code>defineReactive()</code>方法中，在方法内<code>new Dep()</code>实例化一个<code>Dep()</code>实例，然后在<code>getter</code>中通过<code>dep.depend()</code>方法对数据依赖进行收集，然后在<code>settter</code>中通过<code>dep.notify()</code>通知更新。整个<code>Dep</code>其实就是一个观察者，吧收集的依赖存储起来，在需要的时候进行调用。在收集数据依赖的时候，会为数据创建一个<code>Watcher</code>，当数据发生改变通知每个<code>Watcher</code>，由<code>Wathcer</code>进行更新渲染。</p>
-</div><div class="story post-story"><h2 id="slot是什么？有什么作用？原理是什么？"><a href="#slot是什么？有什么作用？原理是什么？" class="headerlink" title="slot是什么？有什么作用？原理是什么？"></a>slot是什么？有什么作用？原理是什么？</h2><p><code>slot</code>插槽，一般在封装组件的时候使用，在组件内不知道以那种形式来展示内容时，可以用<code>slot</code>来占据位置，最终展示形式由父组件以内容形式传递过来，主要分为三种：</p>
-<ul>
-<li><strong>默认插槽</strong>：又名匿名插槽，当<code>slot</code>没有指定<code>name</code>属性值的时候一个默认显示插槽，一个组件内只有有一个匿名插槽。</li>
-<li><strong>具名插槽</strong>：带有具体名字的插槽，也就是带有<code>name</code>属性的<code>slot</code>，一个组件可以出现多个具名插槽。</li>
-<li><strong>作用域插槽</strong>：默认插槽、具名插槽的一个变体，可以是匿名插槽，也可以是具名插槽，该插槽的不同点是在子组件渲染作用域插槽时，可以将子组件内部的数据传递给父组件，让父组件根据子组件的传递过来的数据决定如何渲染该插槽。</li>
-</ul>
-<p>实现原理：当子组件<code>vm</code>实例化时，获取到父组件传入的<code>slot</code>标签的内容，存放在<code>vm.$slot</code>中，默认插槽为<code>vm.$slot.default</code>，具名插槽为<code>vm.$slot.xxx</code>，xxx 为插槽名，当组件执行渲染函数时候，遇到<code>slot</code>标签，使用<code>$slot</code>中的内容进行替换，此时可以为插槽传递数据，若存在数据，则可称该插槽为作用域插槽。</p>
-</div><div class="story post-story"><h2 id="对keep-alive的理解，它是如何实现的，具体缓存的是什么？"><a href="#对keep-alive的理解，它是如何实现的，具体缓存的是什么？" class="headerlink" title="对keep-alive的理解，它是如何实现的，具体缓存的是什么？"></a>对keep-alive的理解，它是如何实现的，具体缓存的是什么？</h2><p><code>keep-alive</code>是Vue.js的一个内置组件。它能够将不活动的组件实例保存在内存中，而不是直接将其销毁，它是一个抽象组件，不会被渲染到真实DOM中，也不会出现在父组件链中。</p>
-<ul>
-<li><code>include</code> 字符串或正则表达式，只有名称匹配的组件会被匹配；</li>
-<li><code>exclude</code> 字符串或正则表达式，任何名称匹配的组件都不会被缓存；</li>
-<li><code>max</code> 数字，最多可以缓存多少组件实例。</li>
-</ul>
-<p><strong>2 个生命周期 activated ， deactivated</strong></p>
-<ul>
-<li><code>activated</code>：当缓存的组件被激活时，该钩子函数被调用。可以在该钩子函数中进行一些状态恢复、数据更新等操作。</li>
-<li><code>deactivated</code>：当缓存的组件被停用时，该钩子函数被调用。可以在该钩子函数中进行一些状态保存、数据清理等操作。</li>
-</ul>
-<p><code>keep-alive</code>内部其实是一个函数式组件，没有<code>template</code>标签。在<code>render</code>中通过获取组件的<code>name</code>和<code>include、exclude</code>进行匹配。匹配不成功，则不需要进行缓存，直接返回该组件的<code>vnode</code>。</p>
-<p>匹配成功就进行缓存，获取组件的<code>key</code>在<code>cache</code>中进行查找，如果存在，则将他原来位置上的<code> key</code> 给移除，同时将这个组件的 <code>key</code> 放到数组最后面（<code>LRU</code>）也就实现了<code>max</code>功能。</p>
-<p>不存在的话，就需要对组件进行缓存。将当前组件<code>push(key)</code>添加到尾部，然后再判断当前缓存的<code>max</code>是否超出指定个数，如果超出直接将第一个组件销毁（缓存淘汰策略LRU）。</p>
-<blockquote>
-<p>LRU（<strong>Least recently used</strong>，最近最少使用）算法根据数据的历史访问记录来进行淘汰数据，其核心思想是“如果数据最近被访问过，那么将来被访问的几率也更高”。</p>
-</blockquote>
-</div><div class="story post-story"><h2 id="nextTick-原理及作用"><a href="#nextTick-原理及作用" class="headerlink" title="$nextTick 原理及作用"></a>$nextTick 原理及作用</h2><p>Vue 的 <code>nextTick</code> 其本质是对 <code>JavaScript</code> 执行原理 <code>EventLoop</code> 的一种应用。 <code>nextTick</code>是将回调函数放到一个异步队列中，保证在异步更新DOM的<code>watcher</code>后面，从而获取到更新后的DOM。</p>
-<p>因为在<code>created()</code>钩子函数中，页面的DOM还未渲染，这时候也没办法操作DOM，所以，此时如果想要操作DOM，必须将操作的代码放在<code>nextTick()</code>的回调函数中。</p>
-<h1 id="虚拟DOM"><a href="#虚拟DOM" class="headerlink" title="虚拟DOM"></a>虚拟DOM</h1></div><div class="story post-story"><h2 id="对虚拟DOM的理解"><a href="#对虚拟DOM的理解" class="headerlink" title="对虚拟DOM的理解"></a>对虚拟DOM的理解</h2><p>虚拟DOM就是用JS对象来表述DOM节点，是对真实DOM的一层抽象。可以通过一些列操作使这个棵树映射到真实DOM上。</p>
-<p>如在<code>Vue</code>中，会把代码转换为虚拟DOM，在最终渲染到页面，在每次数据发生变化前，都会缓存一份虚拟DOM，通过<code>diff</code>算法来对比新旧虚拟DOM记录到一个对象中按需更新，最后创建真实DOM，从而提升页面渲染性能。</p>
-</div><div class="story post-story"><h2 id="虚拟DOM就一定比真实DOM更快吗"><a href="#虚拟DOM就一定比真实DOM更快吗" class="headerlink" title="虚拟DOM就一定比真实DOM更快吗"></a>虚拟DOM就一定比真实DOM更快吗</h2><p><strong>虚拟DOM不一定比真实DOM更快，而是在特定情况下可以提供更好的性能。</strong></p>
-<p>在复杂情况下，虚拟DOM可以比真实DOM操作更快，因为它是在内存中维护一个虚拟的DOM树，将真实DOM操作转换为对虚拟DOM的操作，然后通过<code>diff</code>算法找出需要更新的部分，最后只变更这部分到真实DOM就可以。在频繁变更下，它可以批量处理这些变化从而减少对真实DOM的访问和操作，减少浏览器的回流重绘，提高页面渲染性能。</p>
-<p>而在一下简单场景下，直接操作真实DOM可能会更快，当更新操作很少或者只是局部改变时，直接操作真实DOM比操作虚拟DOM更高效，省去了虚拟DOM的计算、对比开销。</p>
-</div><div class="story post-story"><h2 id="虚拟DOM的解析过程"><a href="#虚拟DOM的解析过程" class="headerlink" title="虚拟DOM的解析过程"></a>虚拟DOM的解析过程</h2><ul>
-<li>首先对将要插入到文档中的 DOM 树结构进行分析，使用 js 对象将其表示出来，比如一个元素对象，包含 <code>TagName</code>、<code>props</code> 和 <code>Children</code> 这些属性。然后将这个 js 对象树给保存下来，最后再将 DOM 片段插入到文档中。</li>
-<li>当页面的状态发生改变，需要对页面的 DOM 的结构进行调整的时候，首先根据变更的状态，重新构建起一棵对象树，然后将这棵新的对象树和旧的对象树进行比较，记录下两棵树的的差异。</li>
-<li>最后将记录的有差异的地方应用到真正的 DOM 树中去，这样视图就更新了。</li>
-</ul>
-</div><div class="story post-story"><h2 id="DIFF算法原理"><a href="#DIFF算法原理" class="headerlink" title="DIFF算法原理"></a>DIFF算法原理</h2><p><code>diff</code>的目的是找出差异，最小化的更新视图。 <code>diff</code>算法发生在视图更新阶段，当数据发生变化的时候，<code>diff</code>会对新旧虚拟DOM进行对比，只渲染有变化的部分。</p>
-<ol>
-<li><p>对比是不是同类型标签，不是同类型直接替换</p>
-</li>
-<li><p>如果是同类型标签，执行<code>patchVnode</code>方法，判断新旧<code>vnode</code>是否相等。如果相等，直接返回。</p>
-</li>
-<li><p>新旧</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vnode</span><br></pre></td></tr></table></figure>
 
-<p>不相等，需要比对新旧节点，比对原则是以新节点为主，主要分为以下几种。</p>
-<ol>
-<li><code>newVnode</code> 和 <code>oldVnode</code>都有文本节点，用新节点替换旧节点。</li>
-<li><code>newVnode</code>有子节点，<code>oldVnode</code>没有，新增<code>newVnode</code>的子节点。</li>
-<li><code>newVnode</code>没有子节点，<code>oldVnode</code>有子节点，删除<code>oldVnode</code>中的子节点。</li>
-<li><code>newVnode</code>和<code>oldVnode</code>都有子节点，通过<code>updateChildren</code>对比子节点。</li>
-</ol>
-</li>
-</ol>
-<p><strong>双端diff</strong></p>
-<p><code>updateChildren</code>方法用来对比子节点是否相同，将新旧节点同级进行比对，减少比对次数。会创建4个指针，分别指向新旧两个节点的首尾，首和尾指针向中间移动。</p>
-<p>每次对比下两个头指针指向的节点、两个尾指针指向的节点，头和尾指向的节点，是不是 key是一样的，也就是可复用的。如果是重复的，直接patch更新一下，如果是头尾节点，需要进行移动位置，结果以新节点的为主。</p>
-<p>如果都没有可以复用的节点，就从旧的<code>vnode</code>中查找，然后进行移动，没有找到就插入一个新节点。</p>
-<p>当比对结束后，此时新节点还有剩余，就批量增加，如果旧节点有剩余就批量删除。</p>
 
 </div>
   </div>
@@ -3000,10 +2770,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2025-04-09T22:56:39+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2025-04-12T23:25:37+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2025年4月9日</p>
+    <p>本页文档最后更新于：2025年4月12日</p>
   </a>
 </div>
 
@@ -3174,7 +2944,7 @@ composa...</p>
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#reactive-%E5%AF%B9%E6%AF%94-ref"><span class="toc-number">1.</span> <span class="toc-text">reactive 对比 ref</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-API"><span class="toc-number">2.</span> <span class="toc-text">1. API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%88%B6%E4%BC%A0%E5%AD%90"><span class="toc-number">3.</span> <span class="toc-text">1. 父传子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AD%90%E4%BC%A0%E7%88%B6"><span class="toc-number">4.</span> <span class="toc-text">2. 子传父</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-defineExpose"><span class="toc-number">5.</span> <span class="toc-text">2. defineExpose</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#reactive-%E5%AF%B9%E6%AF%94-ref"><span class="toc-number">1.</span> <span class="toc-text">reactive 对比 ref</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%88%B6%E4%BC%A0%E5%AD%90"><span class="toc-number">2.</span> <span class="toc-text">1. 父传子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AD%90%E4%BC%A0%E7%88%B6"><span class="toc-number">3.</span> <span class="toc-text">2. 子传父</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-defineExpose"><span class="toc-number">4.</span> <span class="toc-text">2. defineExpose</span></a></li></ol>
     </div>
   </section>
 
@@ -4232,7 +4002,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1654736714924/media/wallpaper/minimalist/2020/035.webp"];
   let index = 0;
   let IntervalParallax = null;
 
@@ -4551,7 +4321,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"hzx's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"hzx's blog"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/学习笔记/","name":"学习笔记"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2024/10/02/vue3/","name":"vue3"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"hzx's blog","url":"http://example.com/","keywords":null,"description":"","author":{"@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":""},"publisher":{"@type":"Organization","name":"hzx's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"vue3","description":"","inLanguage":["zh-CN","en","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2024/10/02/vue3/"},"author":{"@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"hzx's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2024/10/02/vue3/","wordCount":0,"datePublished":"2024-10-02T15:00:05.000Z","dateModified":"2025-04-09T14:56:39.441Z","articleSection":"学习笔记","keywords":"vue3","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"hzx's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"hzx's blog"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/学习笔记/","name":"学习笔记"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2024/10/02/vue3/","name":"vue3"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"hzx's blog","url":"http://example.com/","keywords":null,"description":"","author":{"@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":""},"publisher":{"@type":"Organization","name":"hzx's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"vue3","description":"","inLanguage":["zh-CN","en","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2024/10/02/vue3/"},"author":{"@type":"Person","name":"huangzhixin","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"hzx's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2024/10/02/vue3/","wordCount":0,"datePublished":"2024-10-02T15:00:05.000Z","dateModified":"2025-04-12T15:25:37.625Z","articleSection":"学习笔记","keywords":"vue3","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
